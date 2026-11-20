@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KAI 80 — 24 metre sailing yacht. Master Thesis at Politecnico di Milano.">
+
+    <title>KAI 80 | Marc Karakus</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* HERO IMAGE WITH TITLE OVERLAY */
+
+        .project-hero {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .project-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0, 0, 0, 0.20),
+                rgba(0, 0, 0, 0.03) 80%
+            );
+            pointer-events: none;
+        }
+
+        .hero-title {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(32px, 8vw, 120px);
+            font-weight: 300;
+            letter-spacing: 0.16em;
+            padding-left: 0.16em;
+            line-height: 1.1;
+        }
+
+        .hero-title .project-subtitle {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-top: 22px;
+        }
+
+        .hero-title .project-year {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 18px;
+            line-height: 1.8;
+        }
+
+
+        /* CONCEPT DESCRIPTION */
+
+        .concept-title {
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .editorial-text .section-title {
+            margin-bottom: 30px;
+        }
+
+
+        /* EXTERIOR GALLERY */
+
+        .exterior-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .exterior-gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+
+        /* TENDER GARAGE */
+
+        .garage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .garage-grid img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .garage-grid figcaption {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 18px;
+        }
+
+
+        /* INTERIOR GALLERY */
+
+        .interior-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: start;
+            gap: 25px;
+        }
+
+        .interior-gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        .interior-main {
+            grid-column: 1 / -1;
+        }
+
+
+        /* MOBILE ADAPTATION */
+
+        @media (max-width: 700px) {
+
+            .hero-title h1 {
+                font-size: clamp(28px, 9vw, 60px);
+                letter-spacing: 0.12em;
+                padding-left: 0.12em;
+            }
+
+            .hero-title .project-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+                margin-top: 10px;
+            }
+
+            .hero-title .project-year {
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin-top: 10px;
+            }
+
+            .garage-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .garage-grid figcaption {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .interior-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .exterior-gallery {
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <a class="logo" href="index.html">
+            MARC KARAKUS PÉREZ
+        </a>
+
+        <nav>
+            <a href="about.html">ABOUT ME</a>
+            <a href="index.html#projects">PROJECTS</a>
+            <a href="index.html#contact">CONTACT</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO IMAGE AND PROJECT TITLE -->
+
+        <section class="project-hero">
+
+            <img src="WEB/kai/hero.webp"
+                 alt="KAI 80 — 24 metre sailing yacht">
+
+            <div class="hero-title">
+
+                <h1>KAI 80</h1>
+
+                <p class="project-subtitle">
+                    24M SAILING YACHT
+                </p>
+
+                <span class="project-year">
+                    MASTER THESIS<br>
+                    POLITECNICO DI MILANO
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESIGN ESSENCE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                DESIGN ESSENCE
+            </h2>
+
+            <div class="inspiration-grid">
+
+                <figure>
+
+                    <img src="WEB/kai/inspiration-01.webp"
+                         alt="Sustainable"
+                         loading="lazy">
+
+                    <figcaption>SUSTAINABLE</figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <img src="WEB/kai/inspiration-02.webp"
+                         alt="Authentic"
+                         loading="lazy">
+
+                    <figcaption>AUTHENTIC</figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <img src="WEB/kai/inspiration-03.webp"
+                         alt="Natural"
+                         loading="lazy">
+
+                    <figcaption>NATURAL</figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <img src="WEB/kai/inspiration-04.webp"
+                         alt="Innovative"
+                         loading="lazy">
+
+                    <figcaption>INNOVATIVE</figcaption>
+
+                </figure>
+
+            </div>
+
+
+            <!-- CONCEPT DESCRIPTION -->
+
+            <div class="editorial-text">
+
+                <h2 class="section-title concept-title">
+                    5 DESIGNERS — ONE VISION
+                </h2>
+
+                <p>
+                    A contemporary sailing concept that brings
+                    together the pleasure of cruising and the
+                    performance of a racing yacht. Built around
+                    wooden strip-planking construction, KAI 80
+                    combines environmentally conscious materials
+                    with advanced technology to redefine the
+                    modern sailing experience.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXTERIOR DESIGN -->
+
+        <section class="full-image">
+
+            <img src="WEB/kai/exterior.webp"
+                 alt="KAI 80 exterior design"
+                 loading="lazy">
+
+        </section>
+
+
+        <!-- SUPERSTRUCTURE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                EXTERIOR
+            </h2>
+
+            <div class="exterior-gallery">
+
+                <img src="WEB/kai/superstructure.webp"
+                     alt="KAI 80 superstructure"
+                     loading="lazy">
+
+            </div>
+
+        </section>
+
+
+        <!-- LOUNGE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                LOUNGE
+            </h2>
+
+            <img class="wide-image"
+                 src="WEB/kai/lounge.webp"
+                 alt="KAI 80 lounge"
+                 loading="lazy">
+
+        </section>
+
+
+        <!-- TENDER GARAGE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                TENDER GARAGE
+            </h2>
+
+            <div class="garage-grid">
+
+                <figure>
+
+                    <img src="WEB/kai/garage-open.webp"
+                         alt="KAI 80 tender garage open"
+                         loading="lazy">
+
+                    <figcaption>OPEN</figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <img src="WEB/kai/garage-closed.webp"
+                         alt="KAI 80 tender garage closed"
+                         loading="lazy">
+
+                    <figcaption>CLOSED</figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTERIOR -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                INTERIOR
+            </h2>
+
+            <div class="interior-gallery">
+
+                <img class="interior-main"
+                     src="WEB/kai/interior-01.webp"
+                     alt="KAI 80 master cabin"
+                     loading="lazy">
+
+                <img src="WEB/kai/interior-02.webp"
+                     alt="KAI 80 bathroom"
+                     loading="lazy">
+
+                <img src="WEB/kai/interior-03.webp"
+                     alt="KAI 80 interior detail"
+                     loading="lazy">
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECT NAVIGATION -->
+
+        <section class="project-navigation">
+
+            <a href="amiche.html">
+                &#8592; PREVIOUS PROJECT — AMICHE
+            </a>
+
+            <a href="phoenix.html">
+                NEXT PROJECT — PHOENIX &#8594;
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <a class="logo" href="index.html">
+            MARC KARAKUS PÉREZ
+        </a>
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+        <p class="copyright">
+            © 2026 Marc Karakus Pérez.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
