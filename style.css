@@ -1,0 +1,366 @@
+
+/* =========================================
+   MARC KARAKUS — YACHT DESIGN PORTFOLIO
+   ========================================= */
+
+
+/* GLOBAL SETTINGS */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #ffffff;
+    color: #171717;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.55;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background: #ffffff;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* PROJECT HERO */
+
+.project-hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* PROJECT INTRODUCTION */
+
+.project-intro {
+    padding: 100px 5% 70px;
+    text-align: center;
+}
+
+.project-intro h1 {
+    font-size: clamp(45px, 8vw, 120px);
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    padding-left: 0.16em;
+}
+
+.project-subtitle {
+    font-size: 14px;
+    letter-spacing: 5px;
+    margin-top: 20px;
+}
+
+.project-year {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #777777;
+    margin-top: 20px;
+}
+
+
+/* GENERAL SECTIONS */
+
+.section {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 80px 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    margin-bottom: 45px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #777777;
+    margin-top: -25px;
+    margin-bottom: 45px;
+}
+
+
+/* DESIGN ESSENCE */
+
+.inspiration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.inspiration-grid img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.inspiration-grid figcaption {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 18px;
+}
+
+
+/* EDITORIAL TEXT */
+
+.editorial-text {
+    max-width: 750px;
+    margin: 75px auto 0;
+    text-align: center;
+}
+
+.editorial-text p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #555555;
+}
+
+
+/* FULL WIDTH IMAGES */
+
+.full-image {
+    width: 100%;
+}
+
+.wide-image {
+    width: 100%;
+}
+
+
+/* FEATURE SECTIONS */
+
+.feature {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 8%;
+}
+
+.feature-text {
+    padding: 20px 0;
+}
+
+.feature-text h2 {
+    font-size: clamp(20px, 2.2vw, 38px);
+    line-height: 1.5;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.feature-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555555;
+}
+
+
+/* SKETCH GALLERY */
+
+.sketch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 25px;
+}
+
+.sketch-grid img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* PROJECT NAVIGATION */
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 60px 5%;
+    gap: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 5%;
+    gap: 30px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.copyright {
+    width: 100%;
+    color: #888888;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .feature {
+        gap: 5%;
+    }
+
+    .section-title {
+        font-size: 19px;
+        letter-spacing: 4px;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px 5%;
+    }
+
+    .logo {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        gap: 20px;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .project-intro {
+        padding: 60px 5% 30px;
+    }
+
+    .project-subtitle {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .section {
+        padding: 45px 5%;
+    }
+
+    .section-title {
+        font-size: 17px;
+        letter-spacing: 4px;
+        margin-bottom: 30px;
+    }
+
+    .inspiration-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 12px;
+    }
+
+    .inspiration-grid figcaption {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .editorial-text {
+        margin-top: 40px;
+    }
+
+    .editorial-text p {
+        font-size: 14px;
+    }
+
+    .feature {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-text {
+        padding: 15px 0;
+    }
+
+    .sketch-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .project-navigation {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    footer {
+        padding: 40px 5%;
+    }
+
+}
