@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AMICHE — 60 metre motor yacht concept by Marc Karakus Pérez.">
+    <title>AMICHE | Marc Karakus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <a class="logo" href="index.html">
+            MARC KARAKUS PÉREZ
+        </a>
+
+        <nav>
+            <a href="about.html">ABOUT ME</a>
+            <a href="index.html#projects">PROJECTS</a>
+            <a href="index.html#contact">CONTACT</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- HERO IMAGE -->
+
+        <section class="project-hero">
+            <img src="WEB/amiche/hero.webp"
+                 alt="AMICHE 60 metre motor yacht">
+        </section>
+
+
+        <!-- PROJECT TITLE -->
+
+        <section class="project-intro">
+            <h1>AMICHE</h1>
+
+            <p class="project-subtitle">
+                60M MOTOR YACHT
+            </p>
+
+            <span class="project-year">
+                2026
+            </span>
+        </section>
+
+
+        <!-- DESIGN ESSENCE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                DESIGN ESSENCE
+            </h2>
+
+            <div class="inspiration-grid">
+
+                <figure>
+                    <img src="WEB/amiche/inspiration-01.webp"
+                         alt="Intimate"
+                         loading="lazy">
+                    <figcaption>INTIMATE</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="WEB/amiche/inspiration-02.webp"
+                         alt="Organic"
+                         loading="lazy">
+                    <figcaption>ORGANIC</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="WEB/amiche/inspiration-03.webp"
+                         alt="Softness"
+                         loading="lazy">
+                    <figcaption>SOFTNESS</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="WEB/amiche/inspiration-04.webp"
+                         alt="Minimalism"
+                         loading="lazy">
+                    <figcaption>MINIMALISM</figcaption>
+                </figure>
+
+            </div>
+
+            <div class="editorial-text">
+                <p>
+                    AMICHE explores a refined approach to yacht design,
+                    where organic forms, soft transitions and a restrained
+                    architectural language create a sense of timeless elegance.
+                    The concept seeks to establish a natural connection
+                    between life on board and the surrounding sea.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- EXTERIOR DESIGN -->
+
+        <section class="full-image">
+
+            <img src="WEB/amiche/exterior.webp"
+                 alt="AMICHE exterior design"
+                 loading="lazy">
+
+        </section>
+
+
+        <!-- CONVERTIBLE TENDER GARAGE -->
+
+        <section class="section feature">
+
+            <div class="feature-image">
+
+                <img src="WEB/amiche/garage.webp"
+                     alt="Convertible tender garage"
+                     loading="lazy">
+
+            </div>
+
+            <div class="feature-text">
+
+                <h2>
+                    CONVERTIBLE<br>
+                    TENDER GARAGE
+                </h2>
+
+                <p>
+                    A versatile space that extends the yacht's
+                    relationship with the water, transforming
+                    a functional area into an inviting waterfront
+                    environment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FLYBRIDGE -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                FLYBRIDGE
+            </h2>
+
+            <img class="wide-image"
+                 src="WEB/amiche/flybridge.webp"
+                 alt="AMICHE flybridge"
+                 loading="lazy">
+
+        </section>
+
+
+        <!-- IDEATION -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                IDEATION
+            </h2>
+
+            <div class="sketch-grid">
+
+                <img src="WEB/amiche/sketch-01.webp"
+                     alt="Initial concept sketch"
+                     loading="lazy">
+
+                <img src="WEB/amiche/sketch-02.webp"
+                     alt="Design development sketch"
+                     loading="lazy">
+
+                <img src="WEB/amiche/sketch-03.webp"
+                     alt="Exterior design exploration"
+                     loading="lazy">
+
+            </div>
+
+        </section>
+
+
+        <!-- INTERIOR -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                INTERIOR
+            </h2>
+
+            <p class="section-subtitle">
+                WARM — SERENE
+            </p>
+
+            <img class="wide-image"
+                 src="WEB/amiche/interior.webp"
+                 alt="AMICHE interior design"
+                 loading="lazy">
+
+        </section>
+
+
+        <!-- PROJECT NAVIGATION -->
+
+        <section class="project-navigation">
+
+            <a href="index.html#projects">
+                &#8592; ALL PROJECTS
+            </a>
+
+            <a href="kai.html">
+                NEXT PROJECT — KAI &#8594;
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <a class="logo" href="index.html">
+            MARC KARAKUS PÉREZ
+        </a>
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+        <p class="copyright">
+            © 2026 Marc Karakus Pérez.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
