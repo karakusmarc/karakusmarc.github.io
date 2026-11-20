@@ -1,279 +1,514 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Marc Karakus Pérez — Yacht Designer and Engineer.">
-<title>Marc Karakus | Yacht Design</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marc Karakus Pérez — Yacht Designer and Design Engineer.">
 
-html {
-    scroll-behavior: smooth;
-}
+    <title>Marc Karakus | Yacht Design</title>
 
-body {
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: #fff;
-    color: #171717;
-}
+    <style>
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+        /* GLOBAL SETTINGS */
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 5%;
-    background: #fff;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.logo {
-    font-size: 15px;
-    letter-spacing: 3px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-nav {
-    display: flex;
-    gap: 35px;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #171717;
+        }
 
-nav a:hover {
-    opacity: 0.5;
-}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-.hero {
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 50px 20px;
-}
 
-.hero h1 {
-    font-size: clamp(40px, 10vw, 150px);
-    font-weight: 300;
-    letter-spacing: 0.15em;
-}
+        /* HEADER */
 
-.subtitle {
-    font-size: 13px;
-    letter-spacing: 5px;
-    margin-top: 20px;
-}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 5%;
+            background: #ffffff;
+        }
 
-.introduction {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-top: 40px;
-    color: #555;
-}
+        .logo {
+            font-size: 15px;
+            letter-spacing: 3px;
+        }
 
-.discover {
-    margin-top: 45px;
-    font-size: 12px;
-    letter-spacing: 3px;
-    border-bottom: 1px solid;
-    padding-bottom: 10px;
-}
+        nav {
+            display: flex;
+            gap: 35px;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
 
-.projects {
-    padding: 0 5%;
-}
+        nav a {
+            transition: opacity 0.3s ease;
+        }
 
-.project {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    margin-bottom: 30px;
-    background: #eee;
-}
+        nav a:hover {
+            opacity: 0.5;
+        }
 
-.project img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
 
-.project:hover img {
-    transform: scale(1.025);
-}
+        /* HERO VIDEO */
 
-.project::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        transparent 50%, rgba(0,0,0,0.45)
-    );
-}
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 85vh;
 
-.project-text {
-    position: absolute;
-    bottom: 7%;
-    left: 5%;
-    color: white;
-    z-index: 1;
-}
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-.project-text h2 {
-    font-size: clamp(26px, 5vw, 65px);
-    font-weight: 300;
-    letter-spacing: 6px;
-}
+            text-align: center;
+            padding: 60px 20px;
 
-.project-text p {
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-top: 10px;
-}
+            overflow: hidden;
+            isolation: isolate;
 
-footer {
-    padding: 80px 5%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    font-size: 13px;
-    line-height: 2;
-}
+            background: #24363f;
+            color: #ffffff;
+        }
 
-footer h3 {
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
 
-.copyright {
-    width: 100%;
-    color: #777;
-    font-size: 11px;
-    margin-top: 20px;
-}
+            width: 100%;
+            height: 100%;
 
-@media (max-width: 700px) {
-    header {
-        flex-direction: column;
-        gap: 25px;
-    }
-    nav {
-        gap: 20px;
-        font-size: 10px;
-    }
-    .hero {
-        min-height: 65vh;
-    }
-    .subtitle {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-    .project img {
-        aspect-ratio: 4 / 3;
-    }
-    .project-text p {
-        font-size: 10px;
-    }
-}
-</style>
+            object-fit: cover;
+            object-position: center;
+
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.22);
+
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 10vw, 150px);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            padding-left: 0.15em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        .introduction {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-top: 40px;
+            color: #ffffff;
+        }
+
+        .discover {
+            display: inline-block;
+            margin-top: 45px;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+
+            color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .discover:hover {
+            opacity: 0.6;
+        }
+
+
+        /* PROJECTS */
+
+        .projects {
+            padding: 30px 5% 0;
+        }
+
+        .project {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: #eeeeee;
+        }
+
+        .project img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.025);
+        }
+
+        .project::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                transparent 50%,
+                rgba(0, 0, 0, 0.45)
+            );
+
+            pointer-events: none;
+        }
+
+        .project-text {
+            position: absolute;
+            bottom: 7%;
+            left: 5%;
+
+            color: #ffffff;
+            z-index: 1;
+        }
+
+        .project-text h2 {
+            font-size: clamp(26px, 5vw, 65px);
+            font-weight: 300;
+            letter-spacing: 6px;
+        }
+
+        .project-text p {
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            padding: 80px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            gap: 40px;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        footer h3 {
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            width: 100%;
+            color: #777777;
+            font-size: 11px;
+            margin-top: 20px;
+        }
+
+
+        /* MOBILE ADAPTATION */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            nav {
+                gap: 20px;
+                font-size: 10px;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 40px 15px;
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 9vw, 70px);
+                letter-spacing: 0.12em;
+                padding-left: 0.12em;
+            }
+
+            .subtitle {
+                font-size: 10px;
+                letter-spacing: 2px;
+                line-height: 1.8;
+                margin-top: 15px;
+            }
+
+            .introduction {
+                font-size: 13px;
+                line-height: 1.8;
+                margin-top: 30px;
+            }
+
+            .discover {
+                font-size: 10px;
+                margin-top: 35px;
+            }
+
+            .projects {
+                padding-top: 20px;
+            }
+
+            .project img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .project-text p {
+                font-size: 10px;
+            }
+
+        }
+
+
+        /* REDUCED MOTION */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .project img {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<header>
-    <a class="logo" href="index.html">
-        MARC KARAKUS PÉREZ
-    </a>
 
-    <nav>
-        <a href="about.html">ABOUT ME</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
-</header>
+    <!-- NAVIGATION -->
 
-<main>
+    <header>
 
-    <section class="hero">
-        <h1>KARAKUS</h1>
-
-        <p class="subtitle">
-            YACHT DESIGNER | ENGINEER
-        </p>
-
-        <p class="introduction">
-            Inspired by the ocean, driven by curiosity,<br>
-            crafting yachts that blend art, innovation and soul.
-        </p>
-
-        <a class="discover" href="#projects">
-            DISCOVER
+        <a class="logo" href="index.html">
+            MARC KARAKUS PÉREZ
         </a>
-    </section>
 
-    <section class="projects" id="projects">
+        <nav>
 
-        <a class="project" href="amiche.html">
-            <img src="WEB/home/amiche.webp"
-                 alt="AMICHE — 60 metre motor yacht">
-            <div class="project-text">
-                <h2>AMICHE</h2>
-                <p>60M MOTOR YACHT</p>
+            <a href="about.html">ABOUT ME</a>
+
+            <a href="#projects">PROJECTS</a>
+
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- HERO VIDEO AND INTRODUCTION -->
+
+        <section class="hero">
+
+            <video class="hero-video"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   preload="metadata"
+                   poster="WEB/home/amiche.webp"
+                   aria-hidden="true">
+
+                <source src="WEB/home/hero.mp4"
+                        type="video/mp4">
+
+            </video>
+
+            <div class="hero-content">
+
+                <h1>KARAKUS</h1>
+
+                <p class="subtitle">
+                    YACHT DESIGNER | DESIGN ENGINEER
+                </p>
+
+                <p class="introduction">
+                    Inspired by the ocean, driven by curiosity,<br>
+                    crafting yachts that blend art, innovation and soul.
+                </p>
+
+                <a class="discover" href="#projects">
+                    DISCOVER
+                </a>
+
             </div>
-        </a>
 
-        <a class="project" href="kai.html">
-            <img src="WEB/home/kai.webp"
-                 alt="KAI — 24 metre sailing yacht"
-                 loading="lazy">
-            <div class="project-text">
-                <h2>KAI</h2>
-                <p>24M SAILING YACHT</p>
-            </div>
-        </a>
+        </section>
 
-        <a class="project" href="phoenix.html">
-            <img src="WEB/home/phoenix.webp"
-                 alt="PHOENIX — 42 metre motor yacht"
-                 loading="lazy">
-            <div class="project-text">
-                <h2>PHOENIX</h2>
-                <p>42M MOTOR YACHT</p>
-            </div>
-        </a>
 
-    </section>
+        <!-- PROJECTS -->
 
-</main>
+        <section class="projects" id="projects">
 
-<footer id="contact">
 
-    <div>
-        <h3>CONTACT</h3>
-        <a href="mailto:karakusmarc@gmail.com">
-            karakusmarc@gmail.com
-        </a>
-    </div>
+            <!-- AMICHE -->
 
-    <div class="copyright">
-        © 2026 Marc Karakus Pérez.
-    </div>
+            <a class="project" href="amiche.html">
 
-</footer>
+                <img src="WEB/home/amiche.webp"
+                     alt="AMICHE — 60 metre motor yacht"
+                     loading="lazy">
+
+                <div class="project-text">
+
+                    <h2>AMICHE</h2>
+
+                    <p>60M MOTOR YACHT</p>
+
+                </div>
+
+            </a>
+
+
+            <!-- KAI -->
+
+            <a class="project" href="kai.html">
+
+                <img src="WEB/home/kai.webp"
+                     alt="KAI — 24 metre sailing yacht"
+                     loading="lazy">
+
+                <div class="project-text">
+
+                    <h2>KAI</h2>
+
+                    <p>24M SAILING YACHT</p>
+
+                </div>
+
+            </a>
+
+
+            <!-- PHOENIX -->
+
+            <a class="project" href="phoenix.html">
+
+                <img src="WEB/home/phoenix.webp"
+                     alt="PHOENIX — 42 metre motor yacht"
+                     loading="lazy">
+
+                <div class="project-text">
+
+                    <h2>PHOENIX</h2>
+
+                    <p>42M MOTOR YACHT</p>
+
+                </div>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        <div>
+
+            <h3>CONTACT</h3>
+
+            <a href="mailto:karakusmarc@gmail.com">
+                karakusmarc@gmail.com
+            </a>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 Marc Karakus Pérez.
+
+        </div>
+
+    </footer>
+
+
+    <!-- REDUCED MOTION PREFERENCE -->
+
+    <script>
+
+        const heroVideo = document.querySelector(".hero-video");
+
+        const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+        if (reducedMotion.matches) {
+            heroVideo.pause();
+            heroVideo.removeAttribute("autoplay");
+        }
+
+    </script>
 
 </body>
+
 </html>
