@@ -6,8 +6,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AMICHE — 60 metre motor yacht concept by Marc Karakus Pérez.">
+
     <title>AMICHE | Marc Karakus</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* HERO IMAGE WITH TITLE OVERLAY */
+
+        .project-hero {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .project-hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .project-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0, 0, 0, 0.20),
+                rgba(0, 0, 0, 0.03) 80%
+            );
+            pointer-events: none;
+        }
+
+        .hero-title {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero-title h1 {
+            font-size: clamp(32px, 8vw, 120px);
+            font-weight: 300;
+            letter-spacing: 0.16em;
+            padding-left: 0.16em;
+            line-height: 1.1;
+        }
+
+        .hero-title .project-subtitle {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-top: 22px;
+        }
+
+        .hero-title .project-year {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 18px;
+        }
+
+        /* MOBILE ADAPTATION */
+
+        @media (max-width: 700px) {
+
+            .hero-title h1 {
+                font-size: clamp(28px, 9vw, 60px);
+                letter-spacing: 0.12em;
+                padding-left: 0.12em;
+            }
+
+            .hero-title .project-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+                margin-top: 10px;
+            }
+
+            .hero-title .project-year {
+                font-size: 10px;
+                letter-spacing: 2px;
+                margin-top: 10px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -31,29 +127,26 @@
 
     <main>
 
-        <!-- HERO IMAGE -->
+        <!-- HERO IMAGE AND PROJECT TITLE -->
 
         <section class="project-hero">
 
             <img src="WEB/amiche/hero.webp"
                  alt="AMICHE 60 metre motor yacht">
 
-        </section>
+            <div class="hero-title">
 
+                <h1>AMICHE</h1>
 
-        <!-- PROJECT TITLE -->
+                <p class="project-subtitle">
+                    60M MOTOR YACHT
+                </p>
 
-        <section class="project-intro">
+                <span class="project-year">
+                    2026
+                </span>
 
-            <h1>AMICHE</h1>
-
-            <p class="project-subtitle">
-                60M MOTOR YACHT
-            </p>
-
-            <span class="project-year">
-                2026
-            </span>
+            </div>
 
         </section>
 
@@ -241,4 +334,3 @@
 </body>
 
 </html>
-
