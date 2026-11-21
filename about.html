@@ -4,33 +4,35 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Marc Karakus Pérez — Yacht Designer and Design Engineer.">
+          content="About Marc Karakus Pérez — Yacht Designer and Design Engineer.">
 
     <title>About | Marc Karakus</title>
 
     <style>
 
         /* =====================================
-           KARAKUS — ABOUT ME
-           Minimal Editorial Design
+           KARAKUS — ABOUT
+           Editorial Biography
         ===================================== */
 
         :root {
             --paper: #faf9f6;
             --ink: #292623;
-            --muted: #a59b98;
+            --muted: #aaa39d;
 
             --serif: Georgia, "Times New Roman", serif;
+            --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -40,7 +42,10 @@
         body {
             background: var(--paper);
             color: var(--ink);
+
             font-family: var(--serif);
+            font-weight: 400;
+
             -webkit-font-smoothing: antialiased;
         }
 
@@ -49,33 +54,32 @@
             text-decoration: none;
         }
 
-
-        /* =====================================
-           FIXED LEFT SIDEBAR
-        ===================================== */
-
-        .sidebar {
-            position: fixed;
-
-            top: 0;
-            bottom: 0;
-            left: 0;
-
-            width: 25%;
-
-            padding: 28px 4% 40px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-
-            z-index: 100;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
 
         /* =====================================
-           BRAND
+           HEADER — SAME AS PROJECTS
         ===================================== */
+
+        .site-header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 100;
+
+            display: flex;
+            align-items: flex-start;
+
+            padding: 22px 4%;
+
+            background: var(--paper);
+        }
 
         .site-brand {
             font-family: var(--serif);
@@ -83,44 +87,46 @@
             font-size: 23px;
             font-weight: 400;
 
-            line-height: 1.2;
             letter-spacing: 0.01em;
-
+            line-height: 1.2;
             white-space: nowrap;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .site-brand:hover {
+            opacity: 0.6;
         }
 
 
         /* =====================================
-           NAVIGATION
+           PROJECT MENU — SAME AS PROJECTS
+
+           Same:
+           left: 4%
+           top: 80px
+           gap: 9px
         ===================================== */
 
-        .nav-top {
+        .project-menu {
+            position: fixed;
+
+            left: 4%;
+            top: 80px;
+
+            z-index: 90;
+
             display: flex;
             flex-direction: column;
-
             align-items: flex-start;
 
             gap: 9px;
-
-            margin-top: 30px;
-            padding-left: 15px;
         }
 
-        .nav-bottom {
-            display: flex;
-            flex-direction: column;
+        .project-menu a {
+            display: block;
 
-            align-items: flex-start;
-
-            gap: 9px;
-
-            margin-top: auto;
-            padding-left: 15px;
-        }
-
-        .sidebar nav a {
             font-family: var(--serif);
-
             font-size: 13px;
             font-weight: 400;
 
@@ -132,58 +138,95 @@
             transition: color 0.3s ease;
         }
 
-        .sidebar nav a:hover {
+        .project-menu a:hover {
             color: var(--ink);
         }
 
-        .sidebar nav a.active {
+
+        /* =====================================
+           BOTTOM LEFT MENU — SAME AS PROJECTS
+
+           Same:
+           left: 4%
+           bottom: 35px
+           gap: 7px
+        ===================================== */
+
+        .secondary-menu {
+            position: fixed;
+
+            left: 4%;
+            bottom: 35px;
+
+            z-index: 100;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            gap: 7px;
+        }
+
+        .secondary-menu a {
+            font-family: var(--serif);
+
+            font-size: 13px;
+            font-weight: 400;
+
+            letter-spacing: 0.025em;
+            line-height: 1.3;
+
+            color: var(--muted);
+
+            transition: color 0.3s ease;
+        }
+
+        .secondary-menu a:hover {
+            color: var(--ink);
+        }
+
+        .secondary-menu a.active {
             color: var(--ink);
             font-weight: 700;
         }
 
 
         /* =====================================
-           MAIN CONTENT
+           MAIN ABOUT LAYOUT
 
-           Starts at 31% of page width
-           Text occupies 33% of page width
+           Sidebar: first 25% of page
+
+           Portrait: left of main content
+
+           Text: right of portrait,
+           approximately 1/3 of screen width
         ===================================== */
 
-        .about-main {
-            width: 33%;
+        .about-layout {
+            margin-left: 26%;
+            margin-right: 4%;
 
-            margin-left: 31%;
+            padding-top: 135px;
+            padding-bottom: 130px;
 
-            padding-top: 100px;
-            padding-bottom: 150px;
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 42%)
+                minmax(0, 47%);
+
+            column-gap: 8%;
+
+            align-items: start;
         }
 
 
         /* =====================================
-           PAGE TITLE
-        ===================================== */
-
-        .about-title {
-            font-family: var(--serif);
-
-            font-size: 28px;
-            font-weight: 400;
-
-            line-height: 1.25;
-            letter-spacing: 0.005em;
-
-            margin-bottom: 38px;
-        }
-
-
-        /* =====================================
-           PORTRAIT
-
-           Slightly narrower than text
+           PORTRAIT — LEFT
         ===================================== */
 
         .portrait {
-            width: 82%;
+            width: 100%;
             margin: 0;
         }
 
@@ -193,9 +236,8 @@
             width: 100%;
             aspect-ratio: 4 / 5;
 
-            overflow: hidden;
-
             background: #e5e2dc;
+            overflow: hidden;
         }
 
         .portrait-frame img {
@@ -211,17 +253,28 @@
 
 
         /* =====================================
-           BIOGRAPHY
-
-           12px text
-           Justified
-           One-third page width
+           BIOGRAPHY — RIGHT
         ===================================== */
+
+        .biography-column {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .about-title {
+            font-family: var(--serif);
+
+            font-size: 28px;
+            font-weight: 400;
+
+            letter-spacing: 0.005em;
+            line-height: 1.25;
+
+            margin-bottom: 35px;
+        }
 
         .biography {
             width: 100%;
-
-            margin-top: 85px;
 
             text-align: justify;
             text-align-last: left;
@@ -253,27 +306,32 @@
 
         @media (max-width: 1050px) {
 
-            .sidebar {
-                width: 27%;
+            .project-menu a,
+            .secondary-menu a {
+                font-size: 12px;
             }
 
-            .site-brand {
-                font-size: 21px;
+            .about-layout {
+                margin-left: 23%;
+                margin-right: 4%;
+
+                grid-template-columns:
+                    minmax(0, 42%)
+                    minmax(0, 50%);
+
+                column-gap: 6%;
+
+                padding-top: 120px;
             }
 
-            .about-main {
-                width: 45%;
-                margin-left: 35%;
-
-                padding-top: 110px;
+            .about-title {
+                font-size: 24px;
+                margin-bottom: 25px;
             }
 
-            .portrait {
-                width: 90%;
-            }
-
-            .biography {
-                margin-top: 65px;
+            .biography p {
+                font-size: 12px;
+                line-height: 1.8;
             }
 
         }
@@ -281,65 +339,79 @@
 
         /* =====================================
            MOBILE
+
+           Navigation positions match Projects
         ===================================== */
 
         @media (max-width: 700px) {
 
-            /* Sidebar becomes top navigation */
+            /* Header */
 
-            .sidebar {
-                position: relative;
-
-                width: 100%;
-                height: auto;
-
-                padding: 22px 5%;
-
-                display: flex;
-                flex-direction: column;
-
-                gap: 22px;
+            .site-header {
+                padding: 20px 5%;
+                align-items: center;
             }
 
             .site-brand {
-                font-size: 20px;
+                font-size: 19px;
             }
 
-            .nav-top,
-            .nav-bottom {
-                margin-top: 0;
-                padding-left: 0;
 
-                display: flex;
+            /* Horizontal project menu */
+
+            .project-menu {
+                top: 65px;
+
+                left: 0;
+                right: 0;
+
+                padding: 10px 5%;
+
+                background: var(--paper);
+
                 flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
 
-                gap: 24px;
+                gap: 8px;
             }
 
-            .nav-bottom {
-                position: static;
-            }
-
-            .sidebar nav a {
-                font-size: 12px;
+            .project-menu a {
+                font-size: 11px;
+                letter-spacing: 0.015em;
             }
 
 
-            /* Main content */
+            /* Bottom menu */
 
-            .about-main {
-                width: 90%;
+            .secondary-menu {
+                left: 5%;
+                bottom: 18px;
+
+                flex-direction: row;
+                gap: 25px;
+            }
+
+            .secondary-menu a {
+                font-size: 11px;
+            }
+
+
+            /* Image above text on small screens */
+
+            .about-layout {
+                width: 88%;
                 max-width: 560px;
 
                 margin: 0 auto;
 
-                padding-top: 40px;
-                padding-bottom: 90px;
-            }
+                display: flex;
+                flex-direction: column;
 
-            .about-title {
-                font-size: 27px;
-                margin-bottom: 30px;
+                gap: 45px;
+
+                padding-top: 135px;
+                padding-bottom: 110px;
             }
 
             .portrait {
@@ -350,9 +422,13 @@
                 aspect-ratio: 4 / 5;
             }
 
-            .biography {
+            .biography-column {
                 width: 100%;
-                margin-top: 55px;
+            }
+
+            .about-title {
+                font-size: 27px;
+                margin-bottom: 30px;
             }
 
             .biography p {
@@ -374,7 +450,9 @@
                 scroll-behavior: auto;
             }
 
-            .sidebar nav a {
+            .site-brand,
+            .project-menu a,
+            .secondary-menu a {
                 transition: none;
             }
 
@@ -389,66 +467,72 @@
 
 
     <!-- =====================================
-         FIXED LEFT SIDEBAR
+         BRAND — SAME POSITION AS PROJECTS
     ===================================== -->
 
-    <aside class="sidebar">
-
-        <!-- BRAND -->
+    <header class="site-header">
 
         <a class="site-brand" href="index.html">
             Marc Karakus
         </a>
 
-
-        <!-- TOP MENU -->
-
-        <nav class="nav-top"
-             aria-label="Project navigation">
-
-            <a href="projects.html">
-                Projects
-            </a>
-
-        </nav>
-
-
-        <!-- BOTTOM MENU -->
-
-        <nav class="nav-bottom"
-             aria-label="Personal navigation">
-
-            <a href="about.html"
-               class="active"
-               aria-current="page">
-                About me
-            </a>
-
-            <a href="mailto:karakusmarc@gmail.com">
-                Contact
-            </a>
-
-        </nav>
-
-    </aside>
-
+    </header>
 
 
     <!-- =====================================
-         MAIN ABOUT CONTENT
+         PROJECT MENU — TOP LEFT
     ===================================== -->
 
-    <main class="about-main">
+    <nav class="project-menu"
+         aria-label="Project navigation">
+
+        <a href="projects.html#serenity">
+            SERENITY
+        </a>
+
+        <a href="projects.html#amiche">
+            AMICHE
+        </a>
+
+        <a href="projects.html#kai">
+            KAI
+        </a>
+
+        <a href="projects.html#phoenix">
+            PHOENIX
+        </a>
+
+    </nav>
 
 
-        <!-- TITLE -->
+    <!-- =====================================
+         PERSONAL MENU — BOTTOM LEFT
+    ===================================== -->
 
-        <h1 class="about-title">
-            Marc Karakus Pérez
-        </h1>
+    <nav class="secondary-menu"
+         aria-label="Personal navigation">
+
+        <a href="about.html"
+           class="active"
+           aria-current="page">
+            About me
+        </a>
+
+        <a href="mailto:karakusmarc@gmail.com">
+            Contact
+        </a>
+
+    </nav>
 
 
-        <!-- PORTRAIT -->
+    <!-- =====================================
+         MAIN CONTENT
+    ===================================== -->
+
+    <main class="about-layout">
+
+
+        <!-- PORTRAIT — LEFT -->
 
         <figure class="portrait">
 
@@ -464,71 +548,78 @@
         </figure>
 
 
+        <!-- BIOGRAPHY — RIGHT -->
 
-        <!-- BIOGRAPHY -->
+        <article class="biography-column">
 
-        <article class="biography" lang="en">
+            <h1 class="about-title">
+                Marc Karakus Pérez
+            </h1>
 
-            <p>
-                From engineering to yacht design,
-                an evolving interest in architecture
-                and life at sea.
-            </p>
 
-            <p>
-                Born and raised in Mallorca, the sea
-                has always been a natural part of my life.
-                Growing up surrounded by the Mediterranean
-                and its maritime culture, I developed a
-                fascination with boats and life on the water.
-            </p>
+            <div class="biography" lang="en">
 
-            <p>
-                Towards the end of my engineering degree,
-                I wanted to take my career in a different
-                direction. Yacht design offered the
-                opportunity to bring together my passion
-                for the sea with my interests in
-                engineering, architecture and design.
-            </p>
+                <p>
+                    From engineering to yacht design,
+                    an evolving interest in architecture
+                    and life at sea.
+                </p>
 
-            <p>
-                My experiences in Milan and South Africa
-                have been personally and professionally
-                very enriching.
-            </p>
+                <p>
+                    Born and raised in Mallorca, the sea
+                    has always been a natural part of my life.
+                    Growing up surrounded by the Mediterranean
+                    and its maritime culture, I developed a
+                    fascination with boats and life on the water.
+                </p>
 
-            <p>
-                Living and working in different environments
-                has broadened my perspective, strengthened
-                my interest in yacht design and reassured
-                me that this is the path I want to pursue.
-            </p>
+                <p>
+                    Towards the end of my engineering degree,
+                    I wanted to take my career in a different
+                    direction. Yacht design offered the
+                    opportunity to bring together my passion
+                    for the sea with my interests in
+                    engineering, architecture and design.
+                </p>
 
-            <p>
-                For now, my ambition is to keep learning,
-                gaining experience and developing my own
-                approach to design. In the longer term,
-                I hope to establish my own yacht design
-                studio in Mallorca, returning to the place
-                where my connection with the sea first began.
-            </p>
+                <p>
+                    My experiences in Milan and South Africa
+                    have been personally and professionally
+                    very enriching.
+                </p>
 
-            <p>
-                Beyond design, I find inspiration in the
-                simple things: reading, travelling, staying
-                active and spending time outdoors,
-                particularly by the sea. These moments
-                allow me to disconnect, discover new
-                perspectives and nurture the curiosity
-                that has always guided both my personal
-                and professional journey.
-            </p>
+                <p>
+                    Living and working in different environments
+                    has broadened my perspective, strengthened
+                    my interest in yacht design and reassured
+                    me that this is the path I want to pursue.
+                </p>
+
+                <p>
+                    For now, my ambition is to keep learning,
+                    gaining experience and developing my own
+                    approach to design. In the longer term,
+                    I hope to establish my own yacht design
+                    studio in Mallorca, returning to the place
+                    where my connection with the sea first began.
+                </p>
+
+                <p>
+                    Beyond design, I find inspiration in the
+                    simple things: reading, travelling, staying
+                    active and spending time outdoors,
+                    particularly by the sea. These moments
+                    allow me to disconnect, discover new
+                    perspectives and nurture the curiosity
+                    that has always guided both my personal
+                    and professional journey.
+                </p>
+
+            </div>
 
         </article>
 
     </main>
-
 
 
     <!-- =====================================
@@ -563,8 +654,6 @@
 
     </script>
 
-
 </body>
 
 </html>
-
