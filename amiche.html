@@ -4,7 +4,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -27,6 +26,10 @@
 
             --serif: Georgia, "Times New Roman", serif;
             --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+            /* Shared proportions for all renders */
+            --render-ratio: 16 / 9;
+            --inspiration-ratio: 4 / 5;
         }
 
         * {
@@ -53,8 +56,6 @@
 
         img {
             display: block;
-            width: 100%;
-            height: auto;
         }
 
         figure {
@@ -64,7 +65,6 @@
 
         /* =====================================
            HEADER
-           BRAND LEFT + CLOSE BUTTON RIGHT
         ===================================== */
 
         .site-header {
@@ -99,7 +99,7 @@
 
 
         /* =====================================
-           CLOSE BUTTON — TOP RIGHT
+           CLOSE BUTTON
         ===================================== */
 
         .close-button {
@@ -116,8 +116,6 @@
             line-height: 1;
 
             color: var(--ink);
-
-            cursor: pointer;
 
             transition:
                 opacity 0.3s ease,
@@ -136,8 +134,10 @@
 
 
         /* =====================================
-           FIRST SECTION
-           IMAGE LEFT + DESCRIPTION RIGHT
+           INTRO SECTION
+
+           First render on the left
+           Description on the right
         ===================================== */
 
         .project-intro {
@@ -150,12 +150,43 @@
             display: grid;
 
             grid-template-columns:
-                minmax(0, 72fr)
-                minmax(0, 24fr);
+                minmax(0, 72%)
+                minmax(0, 24%);
 
             gap: 4%;
 
             align-items: end;
+        }
+
+
+        /* =====================================
+           SHARED RENDER FRAME
+
+           Every render uses the same
+           proportions without cropping.
+        ===================================== */
+
+        .render-frame {
+            width: 100%;
+            aspect-ratio: var(--render-ratio);
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--paper);
+        }
+
+        .render-frame img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            object-position: center;
         }
 
 
@@ -166,11 +197,6 @@
         .intro-image {
             width: 100%;
             min-width: 0;
-        }
-
-        .intro-image img {
-            width: 100%;
-            height: auto;
         }
 
 
@@ -188,6 +214,7 @@
             font-family: var(--serif);
             font-size: 28px;
             font-weight: 400;
+
             letter-spacing: 0.015em;
             line-height: 1.2;
 
@@ -217,6 +244,7 @@
             font-family: var(--serif);
             font-size: 14px;
             font-weight: 400;
+
             line-height: 1.85;
 
             margin-bottom: 18px;
@@ -229,12 +257,15 @@
 
         /* =====================================
            EDITORIAL GALLERY
-           CENTERED ON THE PAGE
+
+           Same width as the first render.
+
+           92% page width x 72% image column
+           = 66.24% viewport width.
         ===================================== */
 
         .project-gallery {
-            width: 72%;
-            max-width: 1260px;
+            width: min(66.24vw, 1180.8px);
 
             margin:
                 clamp(85px, 9vw, 170px)
@@ -248,43 +279,30 @@
             gap: clamp(70px, 8vw, 150px);
         }
 
+
+        /* =====================================
+           ALL MAIN GALLERY IMAGES
+
+           Exterior
+           Tender garage
+           Flybridge
+           Interior
+
+           Identical width and height
+        ===================================== */
+
         .gallery-image {
-            display: block;
             width: 100%;
-        }
-
-        .gallery-image img {
-            display: block;
-            width: 100%;
-            height: auto;
+            aspect-ratio: var(--render-ratio);
         }
 
 
         /* =====================================
-           WIDE IMAGES
-        ===================================== */
+           INSPIRATION
 
-        .gallery-wide {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-        /* =====================================
-           MEDIUM IMAGES
-        ===================================== */
-
-        .gallery-medium {
-            width: 82%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-        /* =====================================
-           INSPIRATION IMAGES
-           FOUR IN ONE HORIZONTAL ROW
+           Four equal-sized images
+           In one horizontal row
+           Centered relative to exterior
         ===================================== */
 
         .inspiration-row {
@@ -299,7 +317,6 @@
             width: 76%;
 
             display: grid;
-
             grid-template-columns:
                 repeat(4, minmax(0, 1fr));
 
@@ -310,12 +327,27 @@
 
         .inspiration-grid figure {
             min-width: 0;
+            width: 100%;
+
+            aspect-ratio: var(--inspiration-ratio);
+
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: var(--paper);
         }
 
         .inspiration-grid img {
             display: block;
+
             width: 100%;
-            height: auto;
+            height: 100%;
+
+            object-fit: contain;
+            object-position: center;
         }
 
 
@@ -352,13 +384,15 @@
         @media (max-width: 1050px) {
 
             .project-intro {
-                width: 92%;
-
                 grid-template-columns:
-                    minmax(0, 65fr)
-                    minmax(0, 31fr);
+                    minmax(0, 65%)
+                    minmax(0, 31%);
 
                 gap: 4%;
+            }
+
+            .project-gallery {
+                width: min(59.8vw, 1066px);
             }
 
             .project-title {
@@ -372,10 +406,6 @@
             .project-description p {
                 font-size: 12px;
                 line-height: 1.7;
-            }
-
-            .project-gallery {
-                width: 80%;
             }
 
             .inspiration-grid {
@@ -407,7 +437,7 @@
             }
 
 
-            /* First image and description stack */
+            /* First render and text stacked */
 
             .project-intro {
                 display: block;
@@ -434,7 +464,6 @@
 
             .project-description {
                 margin-top: 25px;
-                max-width: 100%;
             }
 
             .project-description p {
@@ -443,18 +472,13 @@
             }
 
 
-            /* Mobile gallery */
+            /* All renders same size on mobile */
 
             .project-gallery {
                 width: 90%;
 
                 margin: 75px auto 85px;
-
                 gap: 55px;
-            }
-
-            .gallery-medium {
-                width: 100%;
             }
 
 
@@ -508,7 +532,7 @@
 
 
     <!-- =====================================
-         HEADER — BRAND + CLOSE BUTTON
+         HEADER
     ===================================== -->
 
     <header class="site-header">
@@ -532,15 +556,15 @@
 
 
         <!-- =====================================
-             INTRO — FIRST IMAGE + DESCRIPTION
+             FIRST SECTION
         ===================================== -->
 
         <section class="project-intro">
 
 
-            <!-- MAIN IMAGE -->
+            <!-- HERO -->
 
-            <figure class="intro-image">
+            <figure class="intro-image render-frame">
 
                 <img
                     src="WEB/amiche/hero.webp"
@@ -550,7 +574,7 @@
             </figure>
 
 
-            <!-- DESCRIPTION -->
+            <!-- PROJECT INFORMATION -->
 
             <aside class="intro-information">
 
@@ -591,7 +615,7 @@
 
 
         <!-- =====================================
-             EDITORIAL IMAGE GALLERY
+             CENTERED EDITORIAL GALLERY
         ===================================== -->
 
         <div class="project-gallery">
@@ -599,7 +623,7 @@
 
             <!-- EXTERIOR -->
 
-            <figure class="gallery-image gallery-wide">
+            <figure class="gallery-image render-frame">
 
                 <img
                     src="WEB/amiche/exterior.webp"
@@ -609,38 +633,49 @@
             </figure>
 
 
-            <!-- INSPIRATION — FOUR IMAGES -->
+            <!-- FOUR INSPIRATION IMAGES -->
 
             <div class="inspiration-row">
 
                 <div class="inspiration-grid">
 
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-01.webp"
                             alt="Intimate design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-02.webp"
                             alt="Organic design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-03.webp"
                             alt="Softness design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-04.webp"
                             alt="Minimalism design inspiration"
                             loading="lazy">
+
                     </figure>
 
                 </div>
@@ -650,7 +685,7 @@
 
             <!-- TENDER GARAGE -->
 
-            <figure class="gallery-image gallery-medium">
+            <figure class="gallery-image render-frame">
 
                 <img
                     src="WEB/amiche/garage.webp"
@@ -662,7 +697,7 @@
 
             <!-- FLYBRIDGE -->
 
-            <figure class="gallery-image gallery-wide">
+            <figure class="gallery-image render-frame">
 
                 <img
                     src="WEB/amiche/flybridge.webp"
@@ -674,7 +709,7 @@
 
             <!-- INTERIOR -->
 
-            <figure class="gallery-image gallery-medium">
+            <figure class="gallery-image render-frame">
 
                 <img
                     src="WEB/amiche/interior.webp"
@@ -682,6 +717,7 @@
                     loading="lazy">
 
             </figure>
+
 
         </div>
 
