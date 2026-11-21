@@ -10,21 +10,22 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Marc Karakus Pérez — Yacht Designer and Design Engineer. Contemporary yacht design.">
+          content="Marc Karakus Pérez — Yacht Designer and Design Engineer.">
 
     <title>Marc Karakus | Yacht Design</title>
 
     <style>
 
-        /* ==========================================
-           KARAKUS — OFFICIAL PORTFOLIO
-           HOMEPAGE
-           ========================================== */
+        /* =====================================
+           KARAKUS — HOMEPAGE
+           Minimal Editorial Portfolio
+        ===================================== */
 
         :root {
             --white: #f8f7f4;
-            --font-editorial: Georgia, "Times New Roman", serif;
-            --font-interface: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         * {
@@ -33,15 +34,19 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        html,
+        body {
+            width: 100%;
+            height: 100%;
         }
 
         body {
-            font-family: var(--font-interface);
-            font-weight: 300;
-            background: #1c2426;
+            background: #303c3f;
             color: var(--white);
+
+            font-family: var(--sans);
+            font-weight: 300;
+
             -webkit-font-smoothing: antialiased;
         }
 
@@ -51,20 +56,33 @@
         }
 
 
-        /* ==========================================
-           FULLSCREEN HERO
-           ========================================== */
+        /* =====================================
+           FULLSCREEN CLICKABLE HOMEPAGE
+        ===================================== */
 
-        .hero {
+        .hero-link {
             position: relative;
+
+            display: block;
+
             width: 100%;
             height: 100vh;
             height: 100svh;
+
             min-height: 420px;
+
             overflow: hidden;
             isolation: isolate;
+
             background: #303c3f;
+
+            cursor: pointer;
         }
+
+
+        /* =====================================
+           BACKGROUND VIDEO
+        ===================================== */
 
         .hero-video {
             position: absolute;
@@ -74,22 +92,29 @@
             height: 100%;
 
             object-fit: cover;
-            object-position: center center;
+            object-position: center;
 
             z-index: -2;
+
             pointer-events: none;
         }
 
-        .hero::before {
+
+        /* =====================================
+           SUBTLE VIDEO OVERLAY
+        ===================================== */
+
+        .hero-link::before {
             content: "";
+
             position: absolute;
             inset: 0;
 
             background: linear-gradient(
                 180deg,
-                rgba(0, 0, 0, 0.22) 0%,
-                rgba(0, 0, 0, 0.12) 35%,
-                rgba(0, 0, 0, 0.27) 100%
+                rgba(0, 0, 0, 0.18) 0%,
+                rgba(0, 0, 0, 0.12) 40%,
+                rgba(0, 0, 0, 0.24) 100%
             );
 
             z-index: -1;
@@ -97,59 +122,32 @@
         }
 
 
-        /* ==========================================
-           NAVIGATION
-           ========================================== */
+        /* =====================================
+           BRAND — TOP LEFT
+        ===================================== */
 
-        .header {
+        .site-brand {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
 
-            z-index: 10;
+            top: 32px;
+            left: 4%;
 
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
+            z-index: 2;
 
-            padding: 32px 4%;
-        }
-
-        .brand {
-            font-family: var(--font-editorial);
+            font-family: var(--serif);
             font-size: 23px;
             font-weight: 400;
+
             letter-spacing: 0.01em;
             line-height: 1.2;
-            white-space: nowrap;
-        }
 
-        .navigation {
-            display: flex;
-            gap: 35px;
-            align-items: center;
-            padding-top: 7px;
-        }
-
-        .navigation a {
-            position: relative;
-
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.12em;
-
-            transition: opacity 0.35s ease;
-        }
-
-        .navigation a:hover {
-            opacity: 0.55;
+            color: var(--white);
         }
 
 
-        /* ==========================================
-           HERO TYPOGRAPHY
-           ========================================== */
+        /* =====================================
+           CENTERED CONTENT
+        ===================================== */
 
         .hero-content {
             position: absolute;
@@ -157,19 +155,24 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+
             align-items: center;
+            justify-content: center;
 
             text-align: center;
-            padding: 100px 24px 70px;
+
+            padding: 60px 24px;
+            color: var(--white);
+
             pointer-events: none;
         }
 
         .hero-title {
-            font-family: var(--font-editorial);
+            font-family: var(--serif);
 
             font-size: clamp(65px, 10vw, 160px);
             font-weight: 400;
+
             line-height: 1;
 
             letter-spacing: 0.075em;
@@ -179,41 +182,36 @@
         .hero-subtitle {
             margin-top: 28px;
 
-            font-family: var(--font-interface);
+            font-family: var(--sans);
+
             font-size: 12px;
             font-weight: 300;
+
             letter-spacing: 0.3em;
             line-height: 1.8;
         }
 
-        .hero-description {
-            margin-top: 55px;
-            max-width: 600px;
 
-            font-family: var(--font-interface);
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 2;
-            letter-spacing: 0.015em;
+        /* =====================================
+           INTERACTION
+        ===================================== */
+
+        .hero-link:focus-visible {
+            outline: 3px solid var(--white);
+            outline-offset: -8px;
         }
 
 
-        /* ==========================================
-           RESPONSIVE — TABLET
-           ========================================== */
+        /* =====================================
+           TABLET
+        ===================================== */
 
         @media (max-width: 1000px) {
 
-            .header {
-                padding: 28px 5%;
-            }
-
-            .brand {
+            .site-brand {
+                top: 28px;
+                left: 5%;
                 font-size: 21px;
-            }
-
-            .navigation {
-                gap: 25px;
             }
 
             .hero-title {
@@ -223,80 +221,54 @@
         }
 
 
-        /* ==========================================
-           RESPONSIVE — MOBILE
-           ========================================== */
+        /* =====================================
+           MOBILE
+        ===================================== */
 
         @media (max-width: 700px) {
 
-            .hero {
+            .hero-link {
                 min-height: 500px;
             }
 
-            .header {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
+            .site-brand {
+                top: 26px;
+                left: 5%;
 
-                padding: 26px 5%;
-            }
-
-            .brand {
                 font-size: 21px;
             }
 
-            .navigation {
-                gap: 27px;
-                padding-top: 0;
-            }
-
-            .navigation a {
-                font-size: 10px;
-                letter-spacing: 0.1em;
-            }
-
             .hero-content {
-                padding: 145px 22px 75px;
+                padding: 100px 20px;
             }
 
             .hero-title {
                 font-size: clamp(44px, 12vw, 80px);
+
                 letter-spacing: 0.055em;
                 padding-left: 0.055em;
             }
 
             .hero-subtitle {
                 font-size: 9px;
+
                 letter-spacing: 0.13em;
+                line-height: 1.8;
+
                 margin-top: 22px;
-            }
-
-            .hero-description {
-                margin-top: 38px;
-                font-size: 13px;
-                line-height: 1.9;
-                max-width: 340px;
-            }
-
-            .hero-description br {
-                display: none;
             }
 
         }
 
 
-        /* ==========================================
+        /* =====================================
            REDUCED MOTION
-           ========================================== */
+        ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
             html {
                 scroll-behavior: auto;
-            }
-
-            .navigation a {
-                transition: none;
             }
 
         }
@@ -310,11 +282,16 @@
 
     <main>
 
-        <!-- ======================================
-             HOMEPAGE VIDEO
-             ====================================== -->
+        <!-- =====================================
+             FULLSCREEN CLICKABLE HERO
+        ===================================== -->
 
-        <section class="hero">
+        <a class="hero-link"
+           href="projects.html"
+           aria-label="Explore Marc Karakus yacht design projects">
+
+
+            <!-- BACKGROUND VIDEO -->
 
             <video
                 class="hero-video"
@@ -333,35 +310,14 @@
             </video>
 
 
-            <!-- NAVIGATION -->
+            <!-- TOP LEFT BRAND -->
 
-            <header class="header">
-
-                <a class="brand" href="index.html">
-                    Marc Karakus
-                </a>
-
-                <nav class="navigation"
-                     aria-label="Main navigation">
-
-                    <a href="projects.html">
-                        PROJECTS
-                    </a>
-
-                    <a href="about.html">
-                        ABOUT
-                    </a>
-
-                    <a href="mailto:karakusmarc@gmail.com">
-                        CONTACT
-                    </a>
-
-                </nav>
-
-            </header>
+            <span class="site-brand">
+                Marc Karakus
+            </span>
 
 
-            <!-- MAIN TEXT -->
+            <!-- CENTERED TYPOGRAPHY -->
 
             <div class="hero-content">
 
@@ -373,21 +329,17 @@
                     YACHT DESIGNER | DESIGN ENGINEER
                 </p>
 
-                <p class="hero-description">
-                    Inspired by the ocean, driven by curiosity,<br>
-                    crafting yachts that blend art, innovation and soul.
-                </p>
-
             </div>
 
-        </section>
+
+        </a>
 
     </main>
 
 
-    <!-- ==========================================
-         VIDEO ACCESSIBILITY
-         ========================================== -->
+    <!-- =====================================
+         ACCESSIBILITY
+    ===================================== -->
 
     <script>
 
@@ -400,8 +352,10 @@
         );
 
         if (heroVideo && reducedMotion.matches) {
+
             heroVideo.pause();
             heroVideo.removeAttribute("autoplay");
+
         }
 
     </script>
@@ -409,3 +363,4 @@
 </body>
 
 </html>
+
