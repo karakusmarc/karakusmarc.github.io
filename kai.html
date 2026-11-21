@@ -1,466 +1,196 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KAI 80 — 24 metre sailing yacht. Master Thesis at Politecnico di Milano.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KAI 80 — 24m sailing yacht by Marc Karakus Pérez.">
+  <title>KAI 80 | Marc Karakus</title>
+  <style>
+:root {
+  --paper: #faf9f6;
+  --ink: #292623;
+  --muted: #928b84;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --render-ratio: 16 / 9;
+  --inspiration-ratio: 4 / 5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--serif); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+figure { margin: 0; }
+[hidden] { display: none !important; }
 
-    <title>KAI 80 | Marc Karakus</title>
+/* Same fixed header and close control as AMICHE */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 22px 4%; background: var(--paper);
+}
+.site-brand { font-family: var(--serif); font-size: 23px; font-weight: 400; letter-spacing: .01em; line-height: 1.2; transition: opacity .3s ease; }
+.site-brand:hover { opacity: .6; }
+.close-button {
+  display: flex; justify-content: center; align-items: center;
+  width: 32px; height: 32px; font-family: var(--sans);
+  font-size: 32px; font-weight: 200; line-height: 1;
+  color: var(--ink); transition: opacity .3s ease, transform .3s ease;
+}
+.close-button:hover { opacity: .55; transform: rotate(90deg); }
+.close-button:focus-visible { outline: 1px solid var(--ink); outline-offset: 5px; }
 
-    <link rel="stylesheet" href="style.css">
+/* The first render and description scroll together */
+.project-intro {
+  width: 92%; max-width: 1640px; margin: 0 auto; padding-top: 125px;
+  display: grid; grid-template-columns: minmax(0, 72%) minmax(0, 24%);
+  gap: 4%; align-items: end;
+}
+.intro-image { width: 100%; min-width: 0; }
+.render-frame {
+  width: 100%; aspect-ratio: var(--render-ratio); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper);
+}
+.render-frame img {
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
+}
+.intro-information { min-width: 0; align-self: end; padding-bottom: 2px; }
+.project-title { font-size: 28px; font-weight: 400; letter-spacing: .015em; line-height: 1.2; margin-bottom: 12px; }
+.project-category { font-size: 14px; font-weight: 400; line-height: 1.5; }
+.project-year { margin-top: 8px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.project-description { margin-top: 35px; }
+.project-description p { font-size: 14px; font-weight: 400; line-height: 1.85; margin-bottom: 18px; }
+.project-description p:last-child { margin-bottom: 0; }
 
-    <style>
+/* All project renders have exactly the same outside dimensions */
+.project-gallery {
+  width: min(66.24vw, 1180.8px);
+  margin: clamp(85px, 9vw, 170px) auto 130px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(70px, 8vw, 150px);
+}
+.gallery-image { width: 100%; aspect-ratio: var(--render-ratio); }
 
-        /* HERO IMAGE WITH TITLE OVERLAY */
+/* Four inspiration photographs of identical frame size */
+.inspiration-row { width: 100%; display: flex; justify-content: center; align-items: flex-start; }
+.inspiration-grid {
+  width: 76%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 18px); align-items: start;
+}
+.inspiration-grid figure {
+  min-width: 0; width: 100%; aspect-ratio: var(--inspiration-ratio);
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+  background: var(--paper);
+}
+.inspiration-grid img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
 
-        .project-hero {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
+.project-footer {
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 45px 4% 50px; border-top: 1px solid #e3e0db;
+}
+.project-footer a { font-size: 14px; transition: opacity .3s ease; }
+.project-footer a:hover { opacity: .5; }
 
-        .project-hero img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .project-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(0, 0, 0, 0.20),
-                rgba(0, 0, 0, 0.03) 80%
-            );
-            pointer-events: none;
-        }
-
-        .hero-title {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .hero-title h1 {
-            font-size: clamp(32px, 8vw, 120px);
-            font-weight: 300;
-            letter-spacing: 0.16em;
-            padding-left: 0.16em;
-            line-height: 1.1;
-        }
-
-        .hero-title .project-subtitle {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 300;
-            letter-spacing: 5px;
-            margin-top: 22px;
-        }
-
-        .hero-title .project-year {
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-top: 18px;
-            line-height: 1.8;
-        }
-
-
-        /* CONCEPT DESCRIPTION */
-
-        .concept-title {
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .editorial-text .section-title {
-            margin-bottom: 30px;
-        }
-
-
-        /* EXTERIOR GALLERY */
-
-        .exterior-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .exterior-gallery img {
-            width: 100%;
-            height: auto;
-        }
-
-
-        /* TENDER GARAGE */
-
-        .garage-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .garage-grid img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .garage-grid figcaption {
-            text-align: center;
-            font-size: 11px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-top: 18px;
-        }
-
-
-        /* INTERIOR GALLERY */
-
-        .interior-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            align-items: start;
-            gap: 25px;
-        }
-
-        .interior-gallery img {
-            width: 100%;
-            height: auto;
-        }
-
-        .interior-main {
-            grid-column: 1 / -1;
-        }
-
-
-        /* MOBILE ADAPTATION */
-
-        @media (max-width: 700px) {
-
-            .hero-title h1 {
-                font-size: clamp(28px, 9vw, 60px);
-                letter-spacing: 0.12em;
-                padding-left: 0.12em;
-            }
-
-            .hero-title .project-subtitle {
-                font-size: 10px;
-                letter-spacing: 3px;
-                margin-top: 10px;
-            }
-
-            .hero-title .project-year {
-                font-size: 9px;
-                letter-spacing: 2px;
-                margin-top: 10px;
-            }
-
-            .garage-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .garage-grid figcaption {
-                font-size: 10px;
-                letter-spacing: 2px;
-            }
-
-            .interior-gallery {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .exterior-gallery {
-                gap: 15px;
-            }
-
-        }
-
-    </style>
-
+@media (max-width: 1050px) {
+  .project-intro { grid-template-columns: minmax(0, 65%) minmax(0, 31%); gap: 4%; }
+  .project-gallery { width: min(59.8vw, 1066px); }
+  .project-title { font-size: 24px; }
+  .project-description { margin-top: 20px; }
+  .project-description p { font-size: 12px; line-height: 1.7; }
+  .inspiration-grid { width: 80%; }
+}
+@media (max-width: 700px) {
+  .site-header { padding: 20px 5%; align-items: center; }
+  .site-brand { font-size: 19px; }
+  .close-button { width: 30px; height: 30px; font-size: 29px; }
+  .project-intro { display: block; width: 90%; padding-top: 110px; }
+  .intro-image { width: 100%; }
+  .intro-information { margin-top: 30px; }
+  .project-title { font-size: 27px; }
+  .project-category { font-size: 13px; }
+  .project-description { margin-top: 25px; }
+  .project-description p { font-size: 14px; line-height: 1.8; }
+  .project-gallery { width: 90%; margin: 75px auto 85px; gap: 55px; }
+  .inspiration-grid { width: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+  .project-footer { padding: 35px 5%; }
+  .project-footer a { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .close-button { transition: none; }
+}
+  </style>
 </head>
-
 <body>
-
-    <!-- NAVIGATION -->
-
-    <header>
-
-        <a class="logo" href="index.html">
-            MARC KARAKUS PÉREZ
-        </a>
-
-        <nav>
-            <a href="about.html">ABOUT ME</a>
-            <a href="index.html#projects">PROJECTS</a>
-            <a href="index.html#contact">CONTACT</a>
-        </nav>
-
-    </header>
-
-
-    <main>
-
-        <!-- HERO IMAGE AND PROJECT TITLE -->
-
-        <section class="project-hero">
-
-            <img src="WEB/kai/hero.webp"
-                 alt="KAI 80 — 24 metre sailing yacht">
-
-            <div class="hero-title">
-
-                <h1>KAI 80</h1>
-
-                <p class="project-subtitle">
-                    24M SAILING YACHT
-                </p>
-
-                <span class="project-year">
-                    MASTER THESIS<br>
-                    POLITECNICO DI MILANO
-                </span>
-
-            </div>
-
-        </section>
-
-
-        <!-- DESIGN ESSENCE -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                DESIGN ESSENCE
-            </h2>
-
-            <div class="inspiration-grid">
-
-                <figure>
-
-                    <img src="WEB/kai/inspiration-01.webp"
-                         alt="Sustainable"
-                         loading="lazy">
-
-                    <figcaption>SUSTAINABLE</figcaption>
-
-                </figure>
-
-                <figure>
-
-                    <img src="WEB/kai/inspiration-02.webp"
-                         alt="Authentic"
-                         loading="lazy">
-
-                    <figcaption>AUTHENTIC</figcaption>
-
-                </figure>
-
-                <figure>
-
-                    <img src="WEB/kai/inspiration-03.webp"
-                         alt="Natural"
-                         loading="lazy">
-
-                    <figcaption>NATURAL</figcaption>
-
-                </figure>
-
-                <figure>
-
-                    <img src="WEB/kai/inspiration-04.webp"
-                         alt="Innovative"
-                         loading="lazy">
-
-                    <figcaption>INNOVATIVE</figcaption>
-
-                </figure>
-
-            </div>
-
-
-            <!-- CONCEPT DESCRIPTION -->
-
-            <div class="editorial-text">
-
-                <h2 class="section-title concept-title">
-                    5 DESIGNERS — ONE VISION
-                </h2>
-
-                <p>
-                    A contemporary sailing concept that brings
-                    together the pleasure of cruising and the
-                    performance of a racing yacht. Built around
-                    wooden strip-planking construction, KAI 80
-                    combines environmentally conscious materials
-                    with advanced technology to redefine the
-                    modern sailing experience.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- EXTERIOR DESIGN -->
-
-        <section class="full-image">
-
-            <img src="WEB/kai/exterior.webp"
-                 alt="KAI 80 exterior design"
-                 loading="lazy">
-
-        </section>
-
-
-        <!-- SUPERSTRUCTURE -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                EXTERIOR
-            </h2>
-
-            <div class="exterior-gallery">
-
-                <img src="WEB/kai/superstructure.webp"
-                     alt="KAI 80 superstructure"
-                     loading="lazy">
-
-            </div>
-
-        </section>
-
-
-        <!-- LOUNGE -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                LOUNGE
-            </h2>
-
-            <img class="wide-image"
-                 src="WEB/kai/lounge.webp"
-                 alt="KAI 80 lounge"
-                 loading="lazy">
-
-        </section>
-
-
-        <!-- TENDER GARAGE -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                TENDER GARAGE
-            </h2>
-
-            <div class="garage-grid">
-
-                <figure>
-
-                    <img src="WEB/kai/garage-open.webp"
-                         alt="KAI 80 tender garage open"
-                         loading="lazy">
-
-                    <figcaption>OPEN</figcaption>
-
-                </figure>
-
-                <figure>
-
-                    <img src="WEB/kai/garage-closed.webp"
-                         alt="KAI 80 tender garage closed"
-                         loading="lazy">
-
-                    <figcaption>CLOSED</figcaption>
-
-                </figure>
-
-            </div>
-
-        </section>
-
-
-        <!-- INTERIOR -->
-
-        <section class="section">
-
-            <h2 class="section-title">
-                INTERIOR
-            </h2>
-
-            <div class="interior-gallery">
-
-                <img class="interior-main"
-                     src="WEB/kai/interior-01.webp"
-                     alt="KAI 80 master cabin"
-                     loading="lazy">
-
-                <img src="WEB/kai/interior-02.webp"
-                     alt="KAI 80 bathroom"
-                     loading="lazy">
-
-                <img src="WEB/kai/interior-03.webp"
-                     alt="KAI 80 interior detail"
-                     loading="lazy">
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECT NAVIGATION -->
-
-        <section class="project-navigation">
-
-            <a href="amiche.html">
-                &#8592; PREVIOUS PROJECT — AMICHE
-            </a>
-
-            <a href="phoenix.html">
-                NEXT PROJECT — PHOENIX &#8594;
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <a class="logo" href="index.html">
-            MARC KARAKUS PÉREZ
-        </a>
-
-        <a href="index.html#contact">
-            CONTACT
-        </a>
-
-        <p class="copyright">
-            © 2026 Marc Karakus Pérez.
-        </p>
-
-    </footer>
-
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Marc Karakus</a>
+    <a class="close-button" href="projects.html#kai" aria-label="Close project and return to projects"><span aria-hidden="true">&times;</span></a>
+  </header>
+
+  <main>
+    <section class="project-intro">
+      <figure class="intro-image render-frame">
+        <img src="WEB/kai/hero.webp" alt="KAI 80 — 24m sailing yacht" fetchpriority="high">
+      </figure>
+      <aside class="intro-information">
+        <h1 class="project-title">KAI 80</h1>
+        <p class="project-category">24M SAILING YACHT</p>
+        <p class="project-year">MASTER THESIS / POLITECNICO DI MILANO</p>
+        <div class="project-description">
+          <p>A contemporary sailing concept that brings together the pleasure of cruising and the performance of a racing yacht.</p>
+          <p>Built around wooden strip-planking construction, KAI 80 combines environmentally conscious materials with advanced technology to redefine the modern sailing experience.</p>
+        </div>
+      </aside>
+    </section>
+
+    <div class="project-gallery">
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/exterior.webp" alt="KAI exterior render" loading="lazy">
+      </figure>
+
+      <div class="inspiration-row">
+        <div class="inspiration-grid">
+          <figure><img src="WEB/kai/inspiration-01.webp" alt="KAI 80 design inspiration 1" loading="lazy"></figure>
+          <figure><img src="WEB/kai/inspiration-02.webp" alt="KAI 80 design inspiration 2" loading="lazy"></figure>
+          <figure><img src="WEB/kai/inspiration-03.webp" alt="KAI 80 design inspiration 3" loading="lazy"></figure>
+          <figure><img src="WEB/kai/inspiration-04.webp" alt="KAI 80 design inspiration 4" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/superstructure.webp" alt="KAI superstructure" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/lounge.webp" alt="KAI lounge" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/garage-open.webp" alt="KAI garage open" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/garage-closed.webp" alt="KAI garage closed" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/interior-01.webp" alt="KAI interior one" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/interior-02.webp" alt="KAI interior two" loading="lazy">
+      </figure>
+
+      <figure class="gallery-image render-frame">
+        <img src="WEB/kai/interior-03.webp" alt="KAI interior three" loading="lazy">
+      </figure>
+    </div>
+  </main>
+
+  <footer class="project-footer">
+    <a href="phoenix.html">NEXT PROJECT — PHOENIX →</a>
+  </footer>
 </body>
-
 </html>
