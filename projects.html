@@ -24,8 +24,7 @@
         :root {
             --paper: #faf9f6;
             --ink: #292623;
-            --muted: #9a948d;
-            --line: #dedbd5;
+            --muted: #aaa39d;
 
             --serif: Georgia, "Times New Roman", serif;
             --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -73,6 +72,7 @@
 
         .site-header {
             position: fixed;
+
             top: 0;
             left: 0;
             right: 0;
@@ -83,26 +83,32 @@
             justify-content: space-between;
             align-items: flex-start;
 
-            padding: 26px 4%;
+            padding: 22px 4%;
+
             background: var(--paper);
         }
 
         .site-brand {
             font-family: var(--serif);
+
             font-size: 23px;
             font-weight: 400;
             letter-spacing: 0.01em;
+            line-height: 1.2;
+
             white-space: nowrap;
         }
 
         .site-navigation {
             display: flex;
             gap: 35px;
+
             padding-top: 7px;
         }
 
         .site-navigation a {
             font-family: var(--sans);
+
             font-size: 10px;
             font-weight: 400;
             letter-spacing: 0.12em;
@@ -122,38 +128,44 @@
 
         /* =====================================
            FIXED PROJECT MENU
+
+           Small typography
+           Compact spacing
+           Located directly below brand
+           No active indicator line
         ===================================== */
 
         .project-menu {
             position: fixed;
+
             left: 4%;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 80px;
 
             z-index: 90;
 
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 26px;
+
+            gap: 9px;
         }
 
         .project-menu a {
             display: block;
 
-            padding: 5px 0 5px 16px;
-            border-left: 1px solid transparent;
-
             font-family: var(--serif);
-            font-size: 15px;
-            letter-spacing: 0.045em;
+
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.25;
+
+            letter-spacing: 0.025em;
 
             color: var(--muted);
 
             transition:
-                color 0.4s ease,
-                border-color 0.4s ease,
-                opacity 0.4s ease;
+                color 0.3s ease,
+                font-weight 0.3s ease;
         }
 
         .project-menu a:hover {
@@ -162,18 +174,20 @@
 
         .project-menu a.active {
             color: var(--ink);
-            border-left-color: var(--ink);
+            font-weight: 700;
         }
 
 
         /* =====================================
-           FULL SCREEN PROJECT SLIDES
+           FULLSCREEN PROJECT PANELS
         ===================================== */
 
         .project-panel {
             width: 100%;
+
             height: 100vh;
             height: 100svh;
+
             min-height: 560px;
 
             display: grid;
@@ -195,7 +209,7 @@
 
 
         /* =====================================
-           CENTRAL PROJECT IMAGE
+           CENTRAL IMAGE
         ===================================== */
 
         .project-visual {
@@ -208,11 +222,13 @@
             align-self: center;
 
             display: block;
+
             cursor: pointer;
         }
 
         .image-frame {
             width: 100%;
+
             height: 65vh;
             height: 65svh;
 
@@ -242,7 +258,7 @@
 
 
         /* =====================================
-           IMAGE PLACEHOLDER
+           IMAGE FALLBACK
         ===================================== */
 
         .image-frame.is-empty {
@@ -251,8 +267,11 @@
 
         .image-fallback {
             font-family: var(--serif);
-            font-size: 22px;
-            letter-spacing: 0.15em;
+
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+
             color: #aaa39a;
             text-align: center;
         }
@@ -260,6 +279,10 @@
 
         /* =====================================
            PROJECT INFORMATION
+
+           Smaller and more discreet
+           No decorative line
+           No project counter
         ===================================== */
 
         .project-information {
@@ -268,90 +291,53 @@
             width: 100%;
 
             align-self: end;
-            margin-bottom: 12vh;
-        }
 
-        .info-rule {
-            display: block;
-            width: 28px;
-            height: 1px;
-
-            margin-bottom: 20px;
-            background: var(--muted);
+            margin-bottom: 5vh;
         }
 
         .project-information h2 {
             font-family: var(--serif);
-            font-size: 23px;
-            font-weight: 400;
-            letter-spacing: 0.025em;
 
-            margin-bottom: 8px;
+            font-size: 19px;
+            font-weight: 400;
+            letter-spacing: 0;
+
+            line-height: 1.3;
+
+            margin-bottom: 5px;
         }
 
         .project-category {
-            font-family: var(--sans);
-            font-size: 10px;
+            font-family: var(--serif);
+
+            font-size: 12px;
             font-weight: 400;
-            letter-spacing: 0.12em;
-            line-height: 1.8;
-        }
 
-        .project-counter {
-            display: block;
+            letter-spacing: 0.015em;
+            line-height: 1.5;
 
-            margin-top: 15px;
-
-            font-family: var(--sans);
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            color: var(--muted);
+            color: var(--ink);
         }
 
         .project-link {
             display: inline-block;
 
-            margin-top: 28px;
-            padding-bottom: 5px;
+            margin-top: 6px;
 
-            font-family: var(--sans);
-            font-size: 10px;
-            letter-spacing: 0.12em;
+            font-family: var(--serif);
 
-            border-bottom: 1px solid var(--ink);
+            font-size: 12px;
+            font-weight: 400;
 
-            transition: opacity 0.3s ease;
+            letter-spacing: 0;
+
+            color: var(--muted);
+
+            transition: color 0.3s ease;
         }
 
         .project-link:hover {
-            opacity: 0.5;
-        }
-
-
-        /* =====================================
-           SCROLL INDICATOR
-        ===================================== */
-
-        .scroll-indicator {
-            position: fixed;
-            right: 4%;
-            bottom: 30px;
-            z-index: 80;
-
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            font-family: var(--sans);
-            font-size: 9px;
-            letter-spacing: 0.12em;
-            color: var(--muted);
-
-            pointer-events: none;
-        }
-
-        .scroll-indicator span {
-            font-size: 17px;
+            color: var(--ink);
         }
 
 
@@ -371,11 +357,16 @@
             }
 
             .project-menu a {
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .project-information h2 {
-                font-size: 20px;
+                font-size: 18px;
+            }
+
+            .project-category,
+            .project-link {
+                font-size: 11px;
             }
 
             .image-frame {
@@ -411,52 +402,50 @@
             }
 
 
-            /* Horizontal fixed project menu */
+            /* Horizontal project menu */
 
             .project-menu {
                 top: 65px;
+
                 left: 0;
                 right: 0;
 
-                transform: none;
+                padding: 10px 5%;
 
-                padding: 16px 5% 12px;
                 background: var(--paper);
 
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
+
                 gap: 8px;
             }
 
             .project-menu a {
-                border-left: none;
-                border-bottom: 1px solid transparent;
-
-                padding: 5px 0;
-
                 font-size: 11px;
-                letter-spacing: 0.025em;
+                letter-spacing: 0.015em;
             }
 
             .project-menu a.active {
-                border-left: none;
-                border-bottom-color: var(--ink);
+                font-weight: 700;
             }
 
 
-            /* Vertical mobile composition */
+            /* Project composition */
 
             .project-panel {
                 height: 100svh;
                 min-height: 560px;
 
                 grid-template-columns: 1fr;
-                grid-template-rows: minmax(0, 1fr) auto;
+
+                grid-template-rows:
+                    minmax(0, 1fr)
+                    auto;
 
                 gap: 12px;
 
-                padding: 145px 6% 70px;
+                padding: 135px 6% 55px;
             }
 
             .project-visual {
@@ -480,26 +469,17 @@
             }
 
             .project-information h2 {
-                font-size: 22px;
+                font-size: 19px;
+                margin-bottom: 5px;
             }
 
             .project-category {
-                font-size: 10px;
+                font-size: 11px;
             }
 
             .project-link {
-                margin-top: 15px;
-            }
-
-            .info-rule {
-                margin-bottom: 14px;
-            }
-
-            .scroll-indicator {
-                bottom: 20px;
-                right: 6%;
-
-                font-size: 8px;
+                font-size: 11px;
+                margin-top: 6px;
             }
 
         }
@@ -531,7 +511,7 @@
 
 
     <!-- =====================================
-         SITE HEADER
+         HEADER
     ===================================== -->
 
     <header class="site-header">
@@ -605,7 +585,7 @@
 
                     <img
                         src="WEB/home/serenity.webp"
-                        alt="SERENITY yacht concept">
+                        alt="SERENITY yacht design concept">
 
                     <span class="image-fallback" hidden>
                         SERENITY
@@ -618,20 +598,15 @@
 
             <div class="project-information">
 
-                <span class="info-rule"></span>
-
                 <h2>SERENITY</h2>
 
                 <p class="project-category">
                     YACHT DESIGN CONCEPT
                 </p>
 
-                <span class="project-counter">
-                    01 / 04
-                </span>
-
-                <a class="project-link" href="serenity.html">
-                    VIEW PROJECT
+                <a class="project-link"
+                   href="serenity.html">
+                    More info
                 </a>
 
             </div>
@@ -667,20 +642,15 @@
 
             <div class="project-information">
 
-                <span class="info-rule"></span>
-
                 <h2>AMICHE</h2>
 
                 <p class="project-category">
                     60M MOTOR YACHT
                 </p>
 
-                <span class="project-counter">
-                    02 / 04
-                </span>
-
-                <a class="project-link" href="amiche.html">
-                    VIEW PROJECT
+                <a class="project-link"
+                   href="amiche.html">
+                    More info
                 </a>
 
             </div>
@@ -716,20 +686,15 @@
 
             <div class="project-information">
 
-                <span class="info-rule"></span>
-
                 <h2>KAI</h2>
 
                 <p class="project-category">
                     24M SAILING YACHT
                 </p>
 
-                <span class="project-counter">
-                    03 / 04
-                </span>
-
-                <a class="project-link" href="kai.html">
-                    VIEW PROJECT
+                <a class="project-link"
+                   href="kai.html">
+                    More info
                 </a>
 
             </div>
@@ -765,20 +730,15 @@
 
             <div class="project-information">
 
-                <span class="info-rule"></span>
-
                 <h2>PHOENIX</h2>
 
                 <p class="project-category">
                     42M MOTOR YACHT
                 </p>
 
-                <span class="project-counter">
-                    04 / 04
-                </span>
-
-                <a class="project-link" href="phoenix.html">
-                    VIEW PROJECT
+                <a class="project-link"
+                   href="phoenix.html">
+                    More info
                 </a>
 
             </div>
@@ -787,19 +747,6 @@
 
 
     </main>
-
-
-    <!-- =====================================
-         SCROLL INDICATOR
-    ===================================== -->
-
-    <div class="scroll-indicator"
-         aria-hidden="true">
-
-        SCROLL TO EXPLORE
-        <span>↓</span>
-
-    </div>
 
 
     <!-- =====================================
@@ -817,7 +764,7 @@
         );
 
 
-        /* Update active menu item */
+        /* Update selected project */
 
         function setActiveProject(id) {
 
@@ -832,14 +779,18 @@
                 );
 
                 if (isActive) {
+
                     link.setAttribute(
                         "aria-current",
                         "location"
                     );
+
                 } else {
+
                     link.removeAttribute(
                         "aria-current"
                     );
+
                 }
 
             });
@@ -847,9 +798,10 @@
         }
 
 
-        /* Detect current project during scroll */
+        /* Detect project during scrolling */
 
         const observer = new IntersectionObserver(
+
             entries => {
 
                 entries.forEach(entry => {
@@ -865,9 +817,11 @@
                 });
 
             },
+
             {
                 threshold: 0.6
             }
+
         );
 
 
@@ -876,7 +830,7 @@
         });
 
 
-        /* Immediate feedback on menu click */
+        /* Project menu navigation */
 
         menuLinks.forEach(link => {
 
@@ -893,13 +847,14 @@
         });
 
 
-        /* Handle an image not yet uploaded */
+        /* Fallback for missing images */
 
         document.querySelectorAll(
             ".image-frame"
         ).forEach(frame => {
 
             const image = frame.querySelector("img");
+
             const fallback = frame.querySelector(
                 ".image-fallback"
             );
@@ -926,7 +881,6 @@
             }
 
         });
-
 
     </script>
 
