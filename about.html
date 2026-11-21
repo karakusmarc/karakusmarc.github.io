@@ -18,7 +18,6 @@
         :root {
             --paper: #faf9f6;
             --ink: #292623;
-
             --serif: Georgia, "Times New Roman", serif;
             --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
@@ -122,6 +121,7 @@
             padding: 175px 0 160px;
 
             display: grid;
+
             grid-template-columns:
                 minmax(0, 43fr)
                 minmax(0, 45fr);
@@ -177,6 +177,10 @@
 
         .biography-text {
             max-width: 610px;
+
+            text-align: justify;
+            text-align-last: left;
+            hyphens: auto;
         }
 
         .biography-text p {
@@ -201,7 +205,8 @@
             font-size: 12px;
             font-weight: 400;
             line-height: 1.85;
-            margin-bottom: 45px;
+
+            margin-bottom: 25px;
         }
 
         /* TABLET */
@@ -227,14 +232,15 @@
                 margin-bottom: 30px;
             }
 
-            .biography-text p {
-                font-size: 12px;
-                line-height: 1.85;
-            }
-
+            .biography-text p,
             .biography-text .biography-intro {
                 font-size: 12px;
-                margin-bottom: 35px;
+                line-height: 1.85;
+                margin-bottom: 25px;
+            }
+
+            .biography-text p:last-child {
+                margin-bottom: 0;
             }
 
         }
@@ -286,14 +292,15 @@
                 margin-bottom: 30px;
             }
 
-            .biography-text p {
-                font-size: 12px;
-                line-height: 1.85;
-            }
-
+            .biography-text p,
             .biography-text .biography-intro {
                 font-size: 12px;
-                margin-bottom: 35px;
+                line-height: 1.85;
+                margin-bottom: 25px;
+            }
+
+            .biography-text p:last-child {
+                margin-bottom: 0;
             }
 
         }
