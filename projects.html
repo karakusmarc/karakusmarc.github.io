@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Selected yacht design projects by Marc Karakus Pérez.">
+
+    <title>Projects | Marc Karakus</title>
+
+    <style>
+
+        /* =====================================
+           KARAKUS — PROJECT INDEX
+           Editorial Portfolio
+        ===================================== */
+
+        :root {
+            --paper: #faf9f6;
+            --ink: #292623;
+            --muted: #9a948d;
+            --line: #dedbd5;
+
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+
+            font-family: var(--serif);
+            font-weight: 400;
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+
+        /* =====================================
+           FIXED HEADER
+        ===================================== */
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            padding: 26px 4%;
+            background: var(--paper);
+        }
+
+        .site-brand {
+            font-family: var(--serif);
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .site-navigation {
+            display: flex;
+            gap: 35px;
+            padding-top: 7px;
+        }
+
+        .site-navigation a {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .site-navigation a:hover {
+            opacity: 0.5;
+        }
+
+        .site-navigation .current {
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 5px;
+        }
+
+
+        /* =====================================
+           FIXED PROJECT MENU
+        ===================================== */
+
+        .project-menu {
+            position: fixed;
+            left: 4%;
+            top: 50%;
+            transform: translateY(-50%);
+
+            z-index: 90;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 26px;
+        }
+
+        .project-menu a {
+            display: block;
+
+            padding: 5px 0 5px 16px;
+            border-left: 1px solid transparent;
+
+            font-family: var(--serif);
+            font-size: 15px;
+            letter-spacing: 0.045em;
+
+            color: var(--muted);
+
+            transition:
+                color 0.4s ease,
+                border-color 0.4s ease,
+                opacity 0.4s ease;
+        }
+
+        .project-menu a:hover {
+            color: var(--ink);
+        }
+
+        .project-menu a.active {
+            color: var(--ink);
+            border-left-color: var(--ink);
+        }
+
+
+        /* =====================================
+           FULL SCREEN PROJECT SLIDES
+        ===================================== */
+
+        .project-panel {
+            width: 100%;
+            height: 100vh;
+            height: 100svh;
+            min-height: 560px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(155px, 19%)
+                minmax(0, 1fr)
+                minmax(170px, 19%);
+
+            column-gap: clamp(20px, 3vw, 60px);
+
+            align-items: center;
+
+            padding: 90px 4% 45px;
+
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+
+        /* =====================================
+           CENTRAL PROJECT IMAGE
+        ===================================== */
+
+        .project-visual {
+            grid-column: 2;
+
+            width: 100%;
+            max-width: 850px;
+
+            justify-self: center;
+            align-self: center;
+
+            display: block;
+            cursor: pointer;
+        }
+
+        .image-frame {
+            width: 100%;
+            height: 65vh;
+            height: 65svh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .project-visual img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            object-position: center;
+
+            transition: transform 0.9s
+                cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .project-visual:hover img {
+            transform: scale(1.015);
+        }
+
+
+        /* =====================================
+           IMAGE PLACEHOLDER
+        ===================================== */
+
+        .image-frame.is-empty {
+            background: #e8e5e0;
+        }
+
+        .image-fallback {
+            font-family: var(--serif);
+            font-size: 22px;
+            letter-spacing: 0.15em;
+            color: #aaa39a;
+            text-align: center;
+        }
+
+
+        /* =====================================
+           PROJECT INFORMATION
+        ===================================== */
+
+        .project-information {
+            grid-column: 3;
+
+            width: 100%;
+
+            align-self: end;
+            margin-bottom: 12vh;
+        }
+
+        .info-rule {
+            display: block;
+            width: 28px;
+            height: 1px;
+
+            margin-bottom: 20px;
+            background: var(--muted);
+        }
+
+        .project-information h2 {
+            font-family: var(--serif);
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 0.025em;
+
+            margin-bottom: 8px;
+        }
+
+        .project-category {
+            font-family: var(--sans);
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            line-height: 1.8;
+        }
+
+        .project-counter {
+            display: block;
+
+            margin-top: 15px;
+
+            font-family: var(--sans);
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+        }
+
+        .project-link {
+            display: inline-block;
+
+            margin-top: 28px;
+            padding-bottom: 5px;
+
+            font-family: var(--sans);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+
+            border-bottom: 1px solid var(--ink);
+
+            transition: opacity 0.3s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.5;
+        }
+
+
+        /* =====================================
+           SCROLL INDICATOR
+        ===================================== */
+
+        .scroll-indicator {
+            position: fixed;
+            right: 4%;
+            bottom: 30px;
+            z-index: 80;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: var(--sans);
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+
+            pointer-events: none;
+        }
+
+        .scroll-indicator span {
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           TABLET
+        ===================================== */
+
+        @media (max-width: 1050px) {
+
+            .project-panel {
+                grid-template-columns:
+                    minmax(125px, 18%)
+                    minmax(0, 1fr)
+                    minmax(135px, 19%);
+
+                column-gap: 20px;
+            }
+
+            .project-menu a {
+                font-size: 13px;
+            }
+
+            .project-information h2 {
+                font-size: 20px;
+            }
+
+            .image-frame {
+                height: 58svh;
+            }
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 700px) {
+
+            .site-header {
+                padding: 20px 5%;
+                align-items: center;
+            }
+
+            .site-brand {
+                font-size: 19px;
+            }
+
+            .site-navigation {
+                gap: 15px;
+                padding-top: 0;
+            }
+
+            .site-navigation a {
+                font-size: 9px;
+                letter-spacing: 0.04em;
+            }
+
+
+            /* Horizontal fixed project menu */
+
+            .project-menu {
+                top: 65px;
+                left: 0;
+                right: 0;
+
+                transform: none;
+
+                padding: 16px 5% 12px;
+                background: var(--paper);
+
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .project-menu a {
+                border-left: none;
+                border-bottom: 1px solid transparent;
+
+                padding: 5px 0;
+
+                font-size: 11px;
+                letter-spacing: 0.025em;
+            }
+
+            .project-menu a.active {
+                border-left: none;
+                border-bottom-color: var(--ink);
+            }
+
+
+            /* Vertical mobile composition */
+
+            .project-panel {
+                height: 100svh;
+                min-height: 560px;
+
+                grid-template-columns: 1fr;
+                grid-template-rows: minmax(0, 1fr) auto;
+
+                gap: 12px;
+
+                padding: 145px 6% 70px;
+            }
+
+            .project-visual {
+                grid-column: 1;
+                grid-row: 1;
+
+                align-self: center;
+            }
+
+            .image-frame {
+                height: 47svh;
+                min-height: 230px;
+            }
+
+            .project-information {
+                grid-column: 1;
+                grid-row: 2;
+
+                align-self: end;
+                margin-bottom: 0;
+            }
+
+            .project-information h2 {
+                font-size: 22px;
+            }
+
+            .project-category {
+                font-size: 10px;
+            }
+
+            .project-link {
+                margin-top: 15px;
+            }
+
+            .info-rule {
+                margin-bottom: 14px;
+            }
+
+            .scroll-indicator {
+                bottom: 20px;
+                right: 6%;
+
+                font-size: 8px;
+            }
+
+        }
+
+
+        /* =====================================
+           REDUCED MOTION
+        ===================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .project-visual img,
+            .project-menu a {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         SITE HEADER
+    ===================================== -->
+
+    <header class="site-header">
+
+        <a class="site-brand" href="index.html">
+            Marc Karakus
+        </a>
+
+        <nav class="site-navigation"
+             aria-label="Main navigation">
+
+            <a href="projects.html"
+               class="current"
+               aria-current="page">
+                PROJECTS
+            </a>
+
+            <a href="about.html">
+                ABOUT
+            </a>
+
+            <a href="mailto:karakusmarc@gmail.com">
+                CONTACT
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================
+         FIXED PROJECT MENU
+    ===================================== -->
+
+    <nav class="project-menu"
+         aria-label="Project selection">
+
+        <a href="#serenity" class="active">
+            SERENITY
+        </a>
+
+        <a href="#amiche">
+            AMICHE
+        </a>
+
+        <a href="#kai">
+            KAI
+        </a>
+
+        <a href="#phoenix">
+            PHOENIX
+        </a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- =====================================
+             PROJECT 01 — SERENITY
+        ===================================== -->
+
+        <section class="project-panel" id="serenity">
+
+            <a class="project-visual"
+               href="serenity.html"
+               aria-label="View Serenity project">
+
+                <div class="image-frame">
+
+                    <img
+                        src="WEB/home/serenity.webp"
+                        alt="SERENITY yacht concept">
+
+                    <span class="image-fallback" hidden>
+                        SERENITY
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="project-information">
+
+                <span class="info-rule"></span>
+
+                <h2>SERENITY</h2>
+
+                <p class="project-category">
+                    YACHT DESIGN CONCEPT
+                </p>
+
+                <span class="project-counter">
+                    01 / 04
+                </span>
+
+                <a class="project-link" href="serenity.html">
+                    VIEW PROJECT
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROJECT 02 — AMICHE
+        ===================================== -->
+
+        <section class="project-panel" id="amiche">
+
+            <a class="project-visual"
+               href="amiche.html"
+               aria-label="View Amiche project">
+
+                <div class="image-frame">
+
+                    <img
+                        src="WEB/home/amiche.webp"
+                        alt="AMICHE 60 metre motor yacht"
+                        loading="lazy">
+
+                    <span class="image-fallback" hidden>
+                        AMICHE
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="project-information">
+
+                <span class="info-rule"></span>
+
+                <h2>AMICHE</h2>
+
+                <p class="project-category">
+                    60M MOTOR YACHT
+                </p>
+
+                <span class="project-counter">
+                    02 / 04
+                </span>
+
+                <a class="project-link" href="amiche.html">
+                    VIEW PROJECT
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROJECT 03 — KAI
+        ===================================== -->
+
+        <section class="project-panel" id="kai">
+
+            <a class="project-visual"
+               href="kai.html"
+               aria-label="View Kai project">
+
+                <div class="image-frame">
+
+                    <img
+                        src="WEB/home/kai.webp"
+                        alt="KAI 80 sailing yacht"
+                        loading="lazy">
+
+                    <span class="image-fallback" hidden>
+                        KAI
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="project-information">
+
+                <span class="info-rule"></span>
+
+                <h2>KAI</h2>
+
+                <p class="project-category">
+                    24M SAILING YACHT
+                </p>
+
+                <span class="project-counter">
+                    03 / 04
+                </span>
+
+                <a class="project-link" href="kai.html">
+                    VIEW PROJECT
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROJECT 04 — PHOENIX
+        ===================================== -->
+
+        <section class="project-panel" id="phoenix">
+
+            <a class="project-visual"
+               href="phoenix.html"
+               aria-label="View Phoenix project">
+
+                <div class="image-frame">
+
+                    <img
+                        src="WEB/home/phoenix.webp"
+                        alt="PHOENIX 42 metre motor yacht"
+                        loading="lazy">
+
+                    <span class="image-fallback" hidden>
+                        PHOENIX
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="project-information">
+
+                <span class="info-rule"></span>
+
+                <h2>PHOENIX</h2>
+
+                <p class="project-category">
+                    42M MOTOR YACHT
+                </p>
+
+                <span class="project-counter">
+                    04 / 04
+                </span>
+
+                <a class="project-link" href="phoenix.html">
+                    VIEW PROJECT
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================
+         SCROLL INDICATOR
+    ===================================== -->
+
+    <div class="scroll-indicator"
+         aria-hidden="true">
+
+        SCROLL TO EXPLORE
+        <span>↓</span>
+
+    </div>
+
+
+    <!-- =====================================
+         SCROLL NAVIGATION
+    ===================================== -->
+
+    <script>
+
+        const panels = document.querySelectorAll(
+            ".project-panel"
+        );
+
+        const menuLinks = document.querySelectorAll(
+            ".project-menu a"
+        );
+
+
+        /* Update active menu item */
+
+        function setActiveProject(id) {
+
+            menuLinks.forEach(link => {
+
+                const isActive =
+                    link.getAttribute("href") === "#" + id;
+
+                link.classList.toggle(
+                    "active",
+                    isActive
+                );
+
+                if (isActive) {
+                    link.setAttribute(
+                        "aria-current",
+                        "location"
+                    );
+                } else {
+                    link.removeAttribute(
+                        "aria-current"
+                    );
+                }
+
+            });
+
+        }
+
+
+        /* Detect current project during scroll */
+
+        const observer = new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        setActiveProject(
+                            entry.target.id
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.6
+            }
+        );
+
+
+        panels.forEach(panel => {
+            observer.observe(panel);
+        });
+
+
+        /* Immediate feedback on menu click */
+
+        menuLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                const id = link
+                    .getAttribute("href")
+                    .substring(1);
+
+                setActiveProject(id);
+
+            });
+
+        });
+
+
+        /* Handle an image not yet uploaded */
+
+        document.querySelectorAll(
+            ".image-frame"
+        ).forEach(frame => {
+
+            const image = frame.querySelector("img");
+            const fallback = frame.querySelector(
+                ".image-fallback"
+            );
+
+            function showFallback() {
+
+                image.hidden = true;
+                fallback.hidden = false;
+
+                frame.classList.add("is-empty");
+
+            }
+
+            image.addEventListener(
+                "error",
+                showFallback
+            );
+
+            if (
+                image.complete &&
+                image.naturalWidth === 0
+            ) {
+                showFallback();
+            }
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>
