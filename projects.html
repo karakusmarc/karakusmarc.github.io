@@ -128,11 +128,6 @@
 
         /* =====================================
            FIXED PROJECT MENU
-
-           Small typography
-           Compact spacing
-           Located directly below brand
-           No active indicator line
         ===================================== */
 
         .project-menu {
@@ -163,9 +158,7 @@
 
             color: var(--muted);
 
-            transition:
-                color 0.3s ease,
-                font-weight 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .project-menu a:hover {
@@ -194,8 +187,7 @@
 
             grid-template-columns:
                 minmax(155px, 19%)
-                minmax(0, 1fr)
-                minmax(170px, 19%);
+                minmax(0, 1fr);
 
             column-gap: clamp(20px, 3vw, 60px);
 
@@ -209,28 +201,45 @@
 
 
         /* =====================================
-           CENTRAL IMAGE
+           IMAGE + INFORMATION COMPOSITION
+
+           Both elements share one grid.
+           Their bottom edges remain aligned.
+        ===================================== */
+
+        .project-stage {
+            grid-column: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(170px, 24%);
+
+            column-gap: clamp(20px, 3vw, 60px);
+
+            align-items: end;
+
+            width: 100%;
+        }
+
+
+        /* =====================================
+           CENTRAL PROJECT IMAGE
         ===================================== */
 
         .project-visual {
-            grid-column: 2;
-
-            width: 100%;
-            max-width: 850px;
-
-            justify-self: center;
-            align-self: center;
+            grid-column: 1;
 
             display: block;
+
+            width: 100%;
 
             cursor: pointer;
         }
 
         .image-frame {
             width: 100%;
-
-            height: 65vh;
-            height: 65svh;
 
             display: flex;
             justify-content: center;
@@ -242,8 +251,12 @@
         .project-visual img {
             display: block;
 
-            width: 100%;
-            height: 100%;
+            width: auto;
+            height: auto;
+
+            max-width: 100%;
+            max-height: 65vh;
+            max-height: 65svh;
 
             object-fit: contain;
             object-position: center;
@@ -258,10 +271,13 @@
 
 
         /* =====================================
-           IMAGE FALLBACK
+           IMAGE PLACEHOLDER
         ===================================== */
 
         .image-frame.is-empty {
+            min-height: 50vh;
+            min-height: 50svh;
+
             background: #e8e5e0;
         }
 
@@ -280,19 +296,18 @@
         /* =====================================
            PROJECT INFORMATION
 
-           Smaller and more discreet
-           No decorative line
-           No project counter
+           Bottom aligned with the image
         ===================================== */
 
         .project-information {
-            grid-column: 3;
+            grid-column: 2;
 
             width: 100%;
 
             align-self: end;
 
-            margin-bottom: 5vh;
+            margin: 0;
+            padding: 0;
         }
 
         .project-information h2 {
@@ -350,8 +365,15 @@
             .project-panel {
                 grid-template-columns:
                     minmax(125px, 18%)
+                    minmax(0, 1fr);
+
+                column-gap: 20px;
+            }
+
+            .project-stage {
+                grid-template-columns:
                     minmax(0, 1fr)
-                    minmax(135px, 19%);
+                    minmax(135px, 24%);
 
                 column-gap: 20px;
             }
@@ -369,8 +391,8 @@
                 font-size: 11px;
             }
 
-            .image-frame {
-                height: 58svh;
+            .project-visual img {
+                max-height: 58svh;
             }
 
         }
@@ -431,7 +453,7 @@
             }
 
 
-            /* Project composition */
+            /* Mobile project composition */
 
             .project-panel {
                 height: 100svh;
@@ -439,33 +461,40 @@
 
                 grid-template-columns: 1fr;
 
-                grid-template-rows:
-                    minmax(0, 1fr)
-                    auto;
-
-                gap: 12px;
+                gap: 0;
 
                 padding: 135px 6% 55px;
+            }
+
+            .project-stage {
+                grid-column: 1;
+
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+
+                gap: 18px;
+
+                align-items: center;
             }
 
             .project-visual {
                 grid-column: 1;
                 grid-row: 1;
-
-                align-self: center;
             }
 
-            .image-frame {
-                height: 47svh;
-                min-height: 230px;
+            .project-visual img {
+                max-height: 47svh;
+            }
+
+            .image-frame.is-empty {
+                min-height: 35svh;
             }
 
             .project-information {
                 grid-column: 1;
                 grid-row: 2;
 
-                align-self: end;
-                margin-bottom: 0;
+                align-self: start;
             }
 
             .project-information h2 {
@@ -577,37 +606,41 @@
 
         <section class="project-panel" id="serenity">
 
-            <a class="project-visual"
-               href="serenity.html"
-               aria-label="View Serenity project">
+            <div class="project-stage">
 
-                <div class="image-frame">
+                <a class="project-visual"
+                   href="serenity.html"
+                   aria-label="View Serenity project">
 
-                    <img
-                        src="WEB/home/serenity.webp"
-                        alt="SERENITY yacht design concept">
+                    <div class="image-frame">
 
-                    <span class="image-fallback" hidden>
-                        SERENITY
-                    </span>
+                        <img
+                            src="WEB/home/serenity.webp"
+                            alt="SERENITY yacht design concept">
+
+                        <span class="image-fallback" hidden>
+                            SERENITY
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="project-information">
+
+                    <h2>SERENITY</h2>
+
+                    <p class="project-category">
+                        YACHT DESIGN CONCEPT
+                    </p>
+
+                    <a class="project-link"
+                       href="serenity.html">
+                        More info
+                    </a>
 
                 </div>
-
-            </a>
-
-
-            <div class="project-information">
-
-                <h2>SERENITY</h2>
-
-                <p class="project-category">
-                    YACHT DESIGN CONCEPT
-                </p>
-
-                <a class="project-link"
-                   href="serenity.html">
-                    More info
-                </a>
 
             </div>
 
@@ -620,38 +653,42 @@
 
         <section class="project-panel" id="amiche">
 
-            <a class="project-visual"
-               href="amiche.html"
-               aria-label="View Amiche project">
+            <div class="project-stage">
 
-                <div class="image-frame">
+                <a class="project-visual"
+                   href="amiche.html"
+                   aria-label="View Amiche project">
 
-                    <img
-                        src="WEB/home/amiche.webp"
-                        alt="AMICHE 60 metre motor yacht"
-                        loading="lazy">
+                    <div class="image-frame">
 
-                    <span class="image-fallback" hidden>
-                        AMICHE
-                    </span>
+                        <img
+                            src="WEB/home/amiche.webp"
+                            alt="AMICHE 60 metre motor yacht"
+                            loading="lazy">
+
+                        <span class="image-fallback" hidden>
+                            AMICHE
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="project-information">
+
+                    <h2>AMICHE</h2>
+
+                    <p class="project-category">
+                        60M MOTOR YACHT
+                    </p>
+
+                    <a class="project-link"
+                       href="amiche.html">
+                        More info
+                    </a>
 
                 </div>
-
-            </a>
-
-
-            <div class="project-information">
-
-                <h2>AMICHE</h2>
-
-                <p class="project-category">
-                    60M MOTOR YACHT
-                </p>
-
-                <a class="project-link"
-                   href="amiche.html">
-                    More info
-                </a>
 
             </div>
 
@@ -664,38 +701,42 @@
 
         <section class="project-panel" id="kai">
 
-            <a class="project-visual"
-               href="kai.html"
-               aria-label="View Kai project">
+            <div class="project-stage">
 
-                <div class="image-frame">
+                <a class="project-visual"
+                   href="kai.html"
+                   aria-label="View Kai project">
 
-                    <img
-                        src="WEB/home/kai.webp"
-                        alt="KAI 80 sailing yacht"
-                        loading="lazy">
+                    <div class="image-frame">
 
-                    <span class="image-fallback" hidden>
-                        KAI
-                    </span>
+                        <img
+                            src="WEB/home/kai.webp"
+                            alt="KAI 80 sailing yacht"
+                            loading="lazy">
+
+                        <span class="image-fallback" hidden>
+                            KAI
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="project-information">
+
+                    <h2>KAI</h2>
+
+                    <p class="project-category">
+                        24M SAILING YACHT
+                    </p>
+
+                    <a class="project-link"
+                       href="kai.html">
+                        More info
+                    </a>
 
                 </div>
-
-            </a>
-
-
-            <div class="project-information">
-
-                <h2>KAI</h2>
-
-                <p class="project-category">
-                    24M SAILING YACHT
-                </p>
-
-                <a class="project-link"
-                   href="kai.html">
-                    More info
-                </a>
 
             </div>
 
@@ -708,38 +749,42 @@
 
         <section class="project-panel" id="phoenix">
 
-            <a class="project-visual"
-               href="phoenix.html"
-               aria-label="View Phoenix project">
+            <div class="project-stage">
 
-                <div class="image-frame">
+                <a class="project-visual"
+                   href="phoenix.html"
+                   aria-label="View Phoenix project">
 
-                    <img
-                        src="WEB/home/phoenix.webp"
-                        alt="PHOENIX 42 metre motor yacht"
-                        loading="lazy">
+                    <div class="image-frame">
 
-                    <span class="image-fallback" hidden>
-                        PHOENIX
-                    </span>
+                        <img
+                            src="WEB/home/phoenix.webp"
+                            alt="PHOENIX 42 metre motor yacht"
+                            loading="lazy">
+
+                        <span class="image-fallback" hidden>
+                            PHOENIX
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="project-information">
+
+                    <h2>PHOENIX</h2>
+
+                    <p class="project-category">
+                        42M MOTOR YACHT
+                    </p>
+
+                    <a class="project-link"
+                       href="phoenix.html">
+                        More info
+                    </a>
 
                 </div>
-
-            </a>
-
-
-            <div class="project-information">
-
-                <h2>PHOENIX</h2>
-
-                <p class="project-category">
-                    42M MOTOR YACHT
-                </p>
-
-                <a class="project-link"
-                   href="phoenix.html">
-                    More info
-                </a>
 
             </div>
 
@@ -750,7 +795,7 @@
 
 
     <!-- =====================================
-         SCROLL NAVIGATION
+         PROJECT SCROLL NAVIGATION
     ===================================== -->
 
     <script>
