@@ -4,9 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
           content="About Marc Karakus Pérez — Yacht Designer and Design Engineer.">
@@ -14,11 +12,6 @@
     <title>About | Marc Karakus</title>
 
     <style>
-
-        /* =====================================
-           KARAKUS — ABOUT
-           Editorial Biography
-        ===================================== */
 
         :root {
             --paper: #faf9f6;
@@ -42,10 +35,8 @@
         body {
             background: var(--paper);
             color: var(--ink);
-
             font-family: var(--serif);
             font-weight: 400;
-
             -webkit-font-smoothing: antialiased;
         }
 
@@ -66,7 +57,6 @@
 
         .site-header {
             position: fixed;
-
             top: 0;
             left: 0;
             right: 0;
@@ -77,20 +67,16 @@
             align-items: flex-start;
 
             padding: 22px 4%;
-
             background: var(--paper);
         }
 
         .site-brand {
             font-family: var(--serif);
-
             font-size: 23px;
             font-weight: 400;
-
             letter-spacing: 0.01em;
             line-height: 1.2;
             white-space: nowrap;
-
             transition: opacity 0.3s ease;
         }
 
@@ -101,11 +87,6 @@
 
         /* =====================================
            PROJECT MENU — SAME AS PROJECTS
-
-           Same:
-           left: 4%
-           top: 80px
-           gap: 9px
         ===================================== */
 
         .project-menu {
@@ -134,7 +115,6 @@
             letter-spacing: 0.025em;
 
             color: var(--muted);
-
             transition: color 0.3s ease;
         }
 
@@ -145,11 +125,6 @@
 
         /* =====================================
            BOTTOM LEFT MENU — SAME AS PROJECTS
-
-           Same:
-           left: 4%
-           bottom: 35px
-           gap: 7px
         ===================================== */
 
         .secondary-menu {
@@ -169,7 +144,6 @@
 
         .secondary-menu a {
             font-family: var(--serif);
-
             font-size: 13px;
             font-weight: 400;
 
@@ -177,7 +151,6 @@
             line-height: 1.3;
 
             color: var(--muted);
-
             transition: color 0.3s ease;
         }
 
@@ -193,13 +166,6 @@
 
         /* =====================================
            MAIN ABOUT LAYOUT
-
-           Sidebar: first 25% of page
-
-           Portrait: left of main content
-
-           Text: right of portrait,
-           approximately 1/3 of screen width
         ===================================== */
 
         .about-layout {
@@ -216,17 +182,16 @@
                 minmax(0, 47%);
 
             column-gap: 8%;
-
             align-items: start;
         }
 
 
         /* =====================================
-           PORTRAIT — LEFT
+           PORTRAIT — 20% SMALLER
         ===================================== */
 
         .portrait {
-            width: 100%;
+            width: 80%;
             margin: 0;
         }
 
@@ -263,13 +228,11 @@
 
         .about-title {
             font-family: var(--serif);
-
             font-size: 28px;
             font-weight: 400;
 
             letter-spacing: 0.005em;
             line-height: 1.25;
-
             margin-bottom: 35px;
         }
 
@@ -285,7 +248,6 @@
 
         .biography p {
             font-family: var(--serif);
-
             font-size: 12px;
             font-weight: 400;
 
@@ -320,7 +282,6 @@
                     minmax(0, 50%);
 
                 column-gap: 6%;
-
                 padding-top: 120px;
             }
 
@@ -339,13 +300,10 @@
 
         /* =====================================
            MOBILE
-
-           Navigation positions match Projects
+           NAVIGATION MATCHES PROJECTS
         ===================================== */
 
         @media (max-width: 700px) {
-
-            /* Header */
 
             .site-header {
                 padding: 20px 5%;
@@ -356,23 +314,17 @@
                 font-size: 19px;
             }
 
-
-            /* Horizontal project menu */
-
             .project-menu {
                 top: 65px;
-
                 left: 0;
                 right: 0;
 
                 padding: 10px 5%;
-
                 background: var(--paper);
 
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-
                 gap: 8px;
             }
 
@@ -380,9 +332,6 @@
                 font-size: 11px;
                 letter-spacing: 0.015em;
             }
-
-
-            /* Bottom menu */
 
             .secondary-menu {
                 left: 5%;
@@ -396,18 +345,13 @@
                 font-size: 11px;
             }
 
-
-            /* Image above text on small screens */
-
             .about-layout {
                 width: 88%;
                 max-width: 560px;
-
                 margin: 0 auto;
 
                 display: flex;
                 flex-direction: column;
-
                 gap: 45px;
 
                 padding-top: 135px;
@@ -415,7 +359,7 @@
             }
 
             .portrait {
-                width: 100%;
+                width: 80%;
             }
 
             .portrait-frame {
@@ -465,10 +409,7 @@
 
 <body>
 
-
-    <!-- =====================================
-         BRAND — SAME POSITION AS PROJECTS
-    ===================================== -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -479,9 +420,7 @@
     </header>
 
 
-    <!-- =====================================
-         PROJECT MENU — TOP LEFT
-    ===================================== -->
+    <!-- PROJECT MENU -->
 
     <nav class="project-menu"
          aria-label="Project navigation">
@@ -505,9 +444,7 @@
     </nav>
 
 
-    <!-- =====================================
-         PERSONAL MENU — BOTTOM LEFT
-    ===================================== -->
+    <!-- BOTTOM LEFT MENU -->
 
     <nav class="secondary-menu"
          aria-label="Personal navigation">
@@ -525,14 +462,12 @@
     </nav>
 
 
-    <!-- =====================================
-         MAIN CONTENT
-    ===================================== -->
+    <!-- MAIN CONTENT -->
 
     <main class="about-layout">
 
 
-        <!-- PORTRAIT — LEFT -->
+        <!-- PORTRAIT -->
 
         <figure class="portrait">
 
@@ -548,14 +483,13 @@
         </figure>
 
 
-        <!-- BIOGRAPHY — RIGHT -->
+        <!-- BIOGRAPHY -->
 
         <article class="biography-column">
 
             <h1 class="about-title">
                 Marc Karakus Pérez
             </h1>
-
 
             <div class="biography" lang="en">
 
@@ -622,9 +556,7 @@
     </main>
 
 
-    <!-- =====================================
-         PORTRAIT FALLBACK
-    ===================================== -->
+    <!-- PORTRAIT FALLBACK -->
 
     <script>
 
@@ -655,5 +587,4 @@
     </script>
 
 </body>
-
 </html>
