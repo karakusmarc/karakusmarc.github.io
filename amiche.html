@@ -98,7 +98,6 @@
             font-size: 10px;
             font-weight: 400;
             letter-spacing: 0.12em;
-
             transition: opacity 0.3s ease;
         }
 
@@ -114,20 +113,14 @@
 
         /* =====================================
            MAIN PROJECT LAYOUT
-
-           Left: 25% — fixed description
-           Right: 75% — scrolling images
         ===================================== */
 
         .project-layout {
             display: grid;
-
             grid-template-columns: 25% 75%;
-
             align-items: start;
 
             padding: 115px 4% 100px;
-
             min-height: 100vh;
         }
 
@@ -138,9 +131,7 @@
 
         .project-sidebar {
             position: sticky;
-
             top: 115px;
-
             align-self: start;
 
             padding-right: clamp(25px, 4vw, 75px);
@@ -152,7 +143,6 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: 0.015em;
-
             margin-bottom: 12px;
         }
 
@@ -165,7 +155,6 @@
 
         .project-year {
             margin-top: 8px;
-
             font-family: var(--serif);
             font-size: 13px;
             color: var(--muted);
@@ -181,19 +170,16 @@
             font-size: 14px;
             font-weight: 400;
             line-height: 1.85;
-
             margin-bottom: 20px;
         }
 
         .sidebar-back {
             display: inline-block;
-
             margin-top: 30px;
 
             font-family: var(--serif);
             font-size: 13px;
             color: var(--muted);
-
             transition: color 0.3s ease;
         }
 
@@ -212,7 +198,6 @@
 
             display: flex;
             flex-direction: column;
-
             gap: clamp(35px, 5vw, 95px);
         }
 
@@ -229,17 +214,12 @@
 
 
         /* =====================================
-           WIDE IMAGES
+           WIDE AND MEDIUM IMAGES
         ===================================== */
 
         .gallery-wide {
             width: 100%;
         }
-
-
-        /* =====================================
-           MEDIUM IMAGES
-        ===================================== */
 
         .gallery-medium {
             width: 82%;
@@ -257,22 +237,37 @@
         /* =====================================
            INSPIRATION IMAGES
 
-           No titles or captions
+           Centered relative to exterior render
+           Four images in one horizontal row
         ===================================== */
+
+        .inspiration-row {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
         .inspiration-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(2, minmax(0, 1fr));
+                repeat(4, minmax(0, 1fr));
 
-            gap: clamp(12px, 2vw, 30px);
+            gap: clamp(8px, 1vw, 18px);
 
-            width: 82%;
-            margin: 10px auto;
+            width: 76%;
+            margin: 10px 0;
+            align-items: start;
+        }
+
+        .inspiration-grid figure {
+            margin: 0;
+            min-width: 0;
         }
 
         .inspiration-grid img {
+            display: block;
             width: 100%;
             height: auto;
         }
@@ -286,18 +281,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             gap: 20px;
 
             padding: 60px 4% 50px;
-
             border-top: 1px solid #e3e0db;
         }
 
         .project-footer a {
             font-family: var(--serif);
             font-size: 14px;
-
             transition: opacity 0.3s ease;
         }
 
@@ -330,6 +322,7 @@
 
             .inspiration-grid {
                 width: 90%;
+                gap: 10px;
             }
 
         }
@@ -343,7 +336,6 @@
 
             .site-header {
                 padding: 20px 5%;
-
                 align-items: center;
             }
 
@@ -361,19 +353,14 @@
                 letter-spacing: 0.04em;
             }
 
-
-            /* Stack columns on mobile */
-
             .project-layout {
                 display: block;
-
                 padding: 115px 5% 65px;
             }
 
             .project-sidebar {
                 position: relative;
                 top: auto;
-
                 padding-right: 0;
                 margin-bottom: 50px;
             }
@@ -399,9 +386,6 @@
                 margin-top: 15px;
             }
 
-
-            /* Mobile image sequence */
-
             .project-gallery {
                 gap: 40px;
             }
@@ -411,13 +395,16 @@
             }
 
             .inspiration-grid {
+                grid-template-columns:
+                    repeat(4, minmax(0, 1fr));
+
                 width: 100%;
-                gap: 12px;
+                gap: 7px;
+                margin: 10px 0;
             }
 
             .project-footer {
                 padding: 35px 5%;
-
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -434,11 +421,9 @@
         ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
-
             html {
                 scroll-behavior: auto;
             }
-
         }
 
     </style>
@@ -448,10 +433,7 @@
 
 <body>
 
-
-    <!-- =====================================
-         HEADER
-    ===================================== -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -462,8 +444,7 @@
         <nav class="site-navigation"
              aria-label="Main navigation">
 
-            <a href="projects.html"
-               class="current">
+            <a href="projects.html" class="current">
                 PROJECTS
             </a>
 
@@ -480,16 +461,12 @@
     </header>
 
 
-    <!-- =====================================
-         PROJECT LAYOUT
-    ===================================== -->
+    <!-- PROJECT LAYOUT -->
 
     <main class="project-layout">
 
 
-        <!-- =================================
-             LEFT COLUMN — PROJECT DESCRIPTION
-        ================================= -->
+        <!-- LEFT COLUMN -->
 
         <aside class="project-sidebar">
 
@@ -504,7 +481,6 @@
             <p class="project-year">
                 2026
             </p>
-
 
             <div class="project-description">
 
@@ -524,25 +500,20 @@
 
             </div>
 
-
             <a class="sidebar-back"
                href="projects.html#amiche">
-
                 ← All projects
-
             </a>
 
         </aside>
 
 
-        <!-- =================================
-             RIGHT COLUMN — IMAGE GALLERY
-        ================================= -->
+        <!-- RIGHT COLUMN — EDITORIAL GALLERY -->
 
         <div class="project-gallery">
 
 
-            <!-- IMAGE 01 — MAIN RENDER -->
+            <!-- MAIN RENDER -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -554,7 +525,7 @@
             </figure>
 
 
-            <!-- IMAGE 02 — EXTERIOR -->
+            <!-- EXTERIOR RENDER -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -566,50 +537,46 @@
             </figure>
 
 
-            <!-- IMAGE 03–06 — DESIGN INSPIRATION -->
+            <!-- FOUR CENTERED INSPIRATION IMAGES -->
 
-            <div class="inspiration-grid">
+            <div class="inspiration-row">
 
-                <figure>
+                <div class="inspiration-grid">
 
-                    <img
-                        src="WEB/amiche/inspiration-01.webp"
-                        alt="AMICHE design inspiration — intimate"
-                        loading="lazy">
+                    <figure>
+                        <img
+                            src="WEB/amiche/inspiration-01.webp"
+                            alt="Intimate design inspiration"
+                            loading="lazy">
+                    </figure>
 
-                </figure>
+                    <figure>
+                        <img
+                            src="WEB/amiche/inspiration-02.webp"
+                            alt="Organic design inspiration"
+                            loading="lazy">
+                    </figure>
 
-                <figure>
+                    <figure>
+                        <img
+                            src="WEB/amiche/inspiration-03.webp"
+                            alt="Softness design inspiration"
+                            loading="lazy">
+                    </figure>
 
-                    <img
-                        src="WEB/amiche/inspiration-02.webp"
-                        alt="AMICHE design inspiration — organic"
-                        loading="lazy">
+                    <figure>
+                        <img
+                            src="WEB/amiche/inspiration-04.webp"
+                            alt="Minimalism design inspiration"
+                            loading="lazy">
+                    </figure>
 
-                </figure>
-
-                <figure>
-
-                    <img
-                        src="WEB/amiche/inspiration-03.webp"
-                        alt="AMICHE design inspiration — softness"
-                        loading="lazy">
-
-                </figure>
-
-                <figure>
-
-                    <img
-                        src="WEB/amiche/inspiration-04.webp"
-                        alt="AMICHE design inspiration — minimalism"
-                        loading="lazy">
-
-                </figure>
+                </div>
 
             </div>
 
 
-            <!-- IMAGE 07 — TENDER GARAGE -->
+            <!-- TENDER GARAGE -->
 
             <figure class="gallery-image gallery-medium left">
 
@@ -621,7 +588,7 @@
             </figure>
 
 
-            <!-- IMAGE 08 — FLYBRIDGE -->
+            <!-- FLYBRIDGE -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -633,7 +600,7 @@
             </figure>
 
 
-            <!-- IMAGE 09 — INTERIOR -->
+            <!-- INTERIOR -->
 
             <figure class="gallery-image gallery-medium right">
 
@@ -650,9 +617,7 @@
     </main>
 
 
-    <!-- =====================================
-         PROJECT NAVIGATION
-    ===================================== -->
+    <!-- PROJECT NAVIGATION -->
 
     <footer class="project-footer">
 
@@ -665,7 +630,6 @@
         </a>
 
     </footer>
-
 
 </body>
 
