@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -24,8 +23,6 @@
         :root {
             --paper: #faf9f6;
             --ink: #292623;
-            --muted: #928b84;
-            --line: #e5e1dc;
 
             --serif: Georgia, "Times New Roman", serif;
             --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -213,7 +210,7 @@
         .biography-text p {
             font-family: var(--serif);
 
-            font-size: 16px;
+            font-size: 10px;
             font-weight: 400;
 
             line-height: 1.85;
@@ -232,139 +229,12 @@
         ===================================== */
 
         .biography-text .biography-intro {
-            font-size: 18px;
-            font-weight: 400;
-
-            line-height: 1.65;
-
-            margin-bottom: 45px;
-        }
-
-
-        /* =====================================
-           MORE INFORMATION
-        ===================================== */
-
-        .more-information {
-            margin-top: 60px;
-            border-top: 1px solid var(--line);
-        }
-
-        .more-information summary {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 20px 0;
-
-            font-family: var(--serif);
-            font-size: 14px;
-
-            color: var(--muted);
-
-            cursor: pointer;
-            list-style: none;
-            user-select: none;
-        }
-
-        .more-information summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .more-information summary::after {
-            content: "+";
-
-            font-family: var(--sans);
-            font-size: 18px;
-            font-weight: 300;
-        }
-
-        .more-information[open] summary::after {
-            content: "−";
-        }
-
-        .more-information summary:hover {
-            color: var(--ink);
-        }
-
-        .more-content {
-            padding: 20px 0 35px;
-        }
-
-        .detail-group {
-            margin-bottom: 35px;
-        }
-
-        .detail-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .detail-heading {
-            font-family: var(--sans);
-
             font-size: 10px;
             font-weight: 400;
-            letter-spacing: 0.12em;
 
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
+            line-height: 1.85;
 
-        .detail-entry {
-            display: grid;
-            grid-template-columns: 75px 1fr;
-
-            gap: 15px;
-            margin-bottom: 18px;
-        }
-
-        .detail-date {
-            font-family: var(--sans);
-            font-size: 11px;
-            line-height: 1.7;
-            color: var(--muted);
-        }
-
-        .detail-text {
-            font-family: var(--serif);
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .detail-text span {
-            display: block;
-            color: var(--muted);
-            margin-top: 3px;
-        }
-
-
-        /* =====================================
-           CONTACT
-        ===================================== */
-
-        .contact {
-            margin-top: 55px;
-        }
-
-        .contact a {
-            display: inline-block;
-
-            font-family: var(--serif);
-            font-size: 14px;
-
-            color: var(--muted);
-
-            border-bottom: 1px solid transparent;
-            padding-bottom: 4px;
-
-            transition:
-                color 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .contact a:hover {
-            color: var(--ink);
-            border-bottom-color: var(--ink);
+            margin-bottom: 45px;
         }
 
 
@@ -394,12 +264,12 @@
             }
 
             .biography-text p {
-                font-size: 14px;
-                line-height: 1.8;
+                font-size: 10px;
+                line-height: 1.85;
             }
 
             .biography-text .biography-intro {
-                font-size: 17px;
+                font-size: 10px;
                 margin-bottom: 35px;
             }
 
@@ -456,21 +326,13 @@
             }
 
             .biography-text p {
-                font-size: 15px;
+                font-size: 10px;
                 line-height: 1.85;
             }
 
             .biography-text .biography-intro {
-                font-size: 18px;
+                font-size: 10px;
                 margin-bottom: 35px;
-            }
-
-            .more-information {
-                margin-top: 45px;
-            }
-
-            .contact {
-                margin-top: 40px;
             }
 
         }
@@ -487,8 +349,7 @@
             }
 
             .site-brand,
-            .close-button,
-            .contact a {
+            .close-button {
                 transition: none;
             }
 
@@ -546,7 +407,6 @@
         </figure>
 
 
-
         <!-- BIOGRAPHY -->
 
         <article class="biography">
@@ -558,16 +418,11 @@
 
             <div class="biography-text">
 
-                <!-- INTRODUCTION -->
-
                 <p class="biography-intro">
                     From engineering to yacht design,
                     an evolving interest in architecture
                     and life at sea.
                 </p>
-
-
-                <!-- PARAGRAPH 1 -->
 
                 <p>
                     Born and raised in Mallorca, the sea
@@ -576,9 +431,6 @@
                     and its maritime culture, I developed a
                     fascination with boats and life on the water.
                 </p>
-
-
-                <!-- PARAGRAPH 2 -->
 
                 <p>
                     Towards the end of my engineering degree,
@@ -589,17 +441,11 @@
                     engineering, architecture and design.
                 </p>
 
-
-                <!-- PARAGRAPH 3 -->
-
                 <p>
                     My experiences in Milan and South Africa
                     have been personally and professionally
                     very enriching.
                 </p>
-
-
-                <!-- PARAGRAPH 4 -->
 
                 <p>
                     Living and working in different environments
@@ -607,9 +453,6 @@
                     my interest in yacht design and reassured
                     me that this is the path I want to pursue.
                 </p>
-
-
-                <!-- PARAGRAPH 5 -->
 
                 <p>
                     For now, my ambition is to keep learning,
@@ -619,9 +462,6 @@
                     studio in Mallorca, returning to the place
                     where my connection with the sea first began.
                 </p>
-
-
-                <!-- PARAGRAPH 6 -->
 
                 <p>
                     Beyond design, I find inspiration in the
@@ -635,133 +475,6 @@
                 </p>
 
             </div>
-
-
-
-            <!-- MORE INFORMATION -->
-
-            <details class="more-information">
-
-                <summary>
-                    More information
-                </summary>
-
-
-                <div class="more-content">
-
-
-                    <!-- EDUCATION -->
-
-                    <div class="detail-group">
-
-                        <h2 class="detail-heading">
-                            EDUCATION
-                        </h2>
-
-
-                        <div class="detail-entry">
-
-                            <span class="detail-date">
-                                2024–25
-                            </span>
-
-                            <p class="detail-text">
-                                Master in Yacht Design
-
-                                <span>
-                                    POLI.design /
-                                    Politecnico di Milano
-                                </span>
-                            </p>
-
-                        </div>
-
-
-                        <div class="detail-entry">
-
-                            <span class="detail-date">
-                                2018–23
-                            </span>
-
-                            <p class="detail-text">
-                                BSc in Industrial Electronics
-                                and Automation Engineering
-
-                                <span>
-                                    Universitat de les
-                                    Illes Balears
-                                </span>
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- EXPERIENCE -->
-
-                    <div class="detail-group">
-
-                        <h2 class="detail-heading">
-                            EXPERIENCE
-                        </h2>
-
-
-                        <div class="detail-entry">
-
-                            <span class="detail-date">
-                                2026
-                            </span>
-
-                            <p class="detail-text">
-                                Barracuda Yacht Design
-
-                                <span>
-                                    Yacht Designer —
-                                    Madrid
-                                </span>
-                            </p>
-
-                        </div>
-
-
-                        <div class="detail-entry">
-
-                            <span class="detail-date">
-                                2025
-                            </span>
-
-                            <p class="detail-text">
-                                Southern Wind Shipyard
-
-                                <span>
-                                    Yacht Design &amp; Systems —
-                                    Cape Town
-                                </span>
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </details>
-
-
-
-            <!-- CONTACT -->
-
-            <div class="contact">
-
-                <a href="mailto:karakusmarc@gmail.com">
-                    karakusmarc@gmail.com
-                </a>
-
-            </div>
-
 
         </article>
 
@@ -800,7 +513,7 @@
 
     </script>
 
-
 </body>
 
 </html>
+
