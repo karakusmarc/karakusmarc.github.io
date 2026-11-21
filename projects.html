@@ -44,10 +44,8 @@
         body {
             background: var(--paper);
             color: var(--ink);
-
             font-family: var(--serif);
             font-weight: 400;
-
             -webkit-font-smoothing: antialiased;
         }
 
@@ -67,12 +65,11 @@
 
 
         /* =====================================
-           FIXED HEADER
+           FIXED BRAND — TOP LEFT
         ===================================== */
 
         .site-header {
             position: fixed;
-
             top: 0;
             left: 0;
             right: 0;
@@ -80,7 +77,6 @@
             z-index: 100;
 
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
 
             padding: 22px 4%;
@@ -90,44 +86,22 @@
 
         .site-brand {
             font-family: var(--serif);
-
             font-size: 23px;
             font-weight: 400;
             letter-spacing: 0.01em;
             line-height: 1.2;
-
             white-space: nowrap;
-        }
-
-        .site-navigation {
-            display: flex;
-            gap: 35px;
-
-            padding-top: 7px;
-        }
-
-        .site-navigation a {
-            font-family: var(--sans);
-
-            font-size: 10px;
-            font-weight: 400;
-            letter-spacing: 0.12em;
 
             transition: opacity 0.3s ease;
         }
 
-        .site-navigation a:hover {
-            opacity: 0.5;
-        }
-
-        .site-navigation .current {
-            border-bottom: 1px solid var(--ink);
-            padding-bottom: 5px;
+        .site-brand:hover {
+            opacity: 0.6;
         }
 
 
         /* =====================================
-           FIXED PROJECT MENU
+           FIXED PROJECT MENU — TOP LEFT
         ===================================== */
 
         .project-menu {
@@ -149,11 +123,9 @@
             display: block;
 
             font-family: var(--serif);
-
             font-size: 13px;
             font-weight: 400;
             line-height: 1.25;
-
             letter-spacing: 0.025em;
 
             color: var(--muted);
@@ -168,6 +140,46 @@
         .project-menu a.active {
             color: var(--ink);
             font-weight: 700;
+        }
+
+
+        /* =====================================
+           FIXED SECONDARY MENU — BOTTOM LEFT
+
+           About me
+           Contact
+        ===================================== */
+
+        .secondary-menu {
+            position: fixed;
+
+            left: 4%;
+            bottom: 35px;
+
+            z-index: 100;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            gap: 7px;
+        }
+
+        .secondary-menu a {
+            font-family: var(--serif);
+            font-size: 13px;
+            font-weight: 400;
+
+            letter-spacing: 0.025em;
+            line-height: 1.3;
+
+            color: var(--muted);
+
+            transition: color 0.3s ease;
+        }
+
+        .secondary-menu a:hover {
+            color: var(--ink);
         }
 
 
@@ -232,7 +244,6 @@
             grid-column: 1;
 
             display: block;
-
             width: 100%;
 
             cursor: pointer;
@@ -255,6 +266,7 @@
             height: auto;
 
             max-width: 100%;
+
             max-height: 65vh;
             max-height: 65svh;
 
@@ -296,7 +308,7 @@
         /* =====================================
            PROJECT INFORMATION
 
-           Bottom aligned with the image
+           Bottom aligned with image
         ===================================== */
 
         .project-information {
@@ -318,7 +330,6 @@
             letter-spacing: 0;
 
             line-height: 1.3;
-
             margin-bottom: 5px;
         }
 
@@ -340,12 +351,10 @@
             margin-top: 6px;
 
             font-family: var(--serif);
-
             font-size: 12px;
             font-weight: 400;
 
             letter-spacing: 0;
-
             color: var(--muted);
 
             transition: color 0.3s ease;
@@ -378,7 +387,8 @@
                 column-gap: 20px;
             }
 
-            .project-menu a {
+            .project-menu a,
+            .secondary-menu a {
                 font-size: 12px;
             }
 
@@ -413,16 +423,6 @@
                 font-size: 19px;
             }
 
-            .site-navigation {
-                gap: 15px;
-                padding-top: 0;
-            }
-
-            .site-navigation a {
-                font-size: 9px;
-                letter-spacing: 0.04em;
-            }
-
 
             /* Horizontal project menu */
 
@@ -453,6 +453,21 @@
             }
 
 
+            /* Bottom secondary menu */
+
+            .secondary-menu {
+                left: 5%;
+                bottom: 18px;
+
+                flex-direction: row;
+                gap: 25px;
+            }
+
+            .secondary-menu a {
+                font-size: 11px;
+            }
+
+
             /* Mobile project composition */
 
             .project-panel {
@@ -463,7 +478,7 @@
 
                 gap: 0;
 
-                padding: 135px 6% 55px;
+                padding: 135px 6% 80px;
             }
 
             .project-stage {
@@ -525,7 +540,8 @@
             }
 
             .project-visual img,
-            .project-menu a {
+            .project-menu a,
+            .secondary-menu a {
                 transition: none;
             }
 
@@ -540,7 +556,7 @@
 
 
     <!-- =====================================
-         HEADER
+         HEADER — BRAND ONLY
     ===================================== -->
 
     <header class="site-header">
@@ -548,25 +564,6 @@
         <a class="site-brand" href="index.html">
             Marc Karakus
         </a>
-
-        <nav class="site-navigation"
-             aria-label="Main navigation">
-
-            <a href="projects.html"
-               class="current"
-               aria-current="page">
-                PROJECTS
-            </a>
-
-            <a href="about.html">
-                ABOUT
-            </a>
-
-            <a href="mailto:karakusmarc@gmail.com">
-                CONTACT
-            </a>
-
-        </nav>
 
     </header>
 
@@ -592,6 +589,24 @@
 
         <a href="#phoenix">
             PHOENIX
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================
+         FIXED BOTTOM LEFT MENU
+    ===================================== -->
+
+    <nav class="secondary-menu"
+         aria-label="Secondary navigation">
+
+        <a href="about.html">
+            About me
+        </a>
+
+        <a href="mailto:karakusmarc@gmail.com">
+            Contact
         </a>
 
     </nav>
@@ -809,7 +824,9 @@
         );
 
 
-        /* Update selected project */
+        /* =====================================
+           UPDATE SELECTED PROJECT
+        ===================================== */
 
         function setActiveProject(id) {
 
@@ -843,7 +860,9 @@
         }
 
 
-        /* Detect project during scrolling */
+        /* =====================================
+           DETECT PROJECT DURING SCROLL
+        ===================================== */
 
         const observer = new IntersectionObserver(
 
@@ -875,7 +894,9 @@
         });
 
 
-        /* Project menu navigation */
+        /* =====================================
+           PROJECT MENU NAVIGATION
+        ===================================== */
 
         menuLinks.forEach(link => {
 
@@ -892,7 +913,9 @@
         });
 
 
-        /* Fallback for missing images */
+        /* =====================================
+           FALLBACK FOR MISSING IMAGES
+        ===================================== */
 
         document.querySelectorAll(
             ".image-frame"
@@ -932,3 +955,4 @@
 </body>
 
 </html>
+
