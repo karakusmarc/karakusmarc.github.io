@@ -64,6 +64,7 @@
 
         /* =====================================
            HEADER
+           BRAND LEFT + CLOSE BUTTON RIGHT
         ===================================== */
 
         .site-header {
@@ -88,40 +89,55 @@
             font-weight: 400;
             letter-spacing: 0.01em;
             line-height: 1.2;
-        }
-
-        .site-navigation {
-            display: flex;
-            gap: 35px;
-            padding-top: 7px;
-        }
-
-        .site-navigation a {
-            font-family: var(--sans);
-            font-size: 10px;
-            font-weight: 400;
-            letter-spacing: 0.12em;
 
             transition: opacity 0.3s ease;
         }
 
-        .site-navigation a:hover {
-            opacity: 0.5;
+        .site-brand:hover {
+            opacity: 0.6;
         }
 
-        .site-navigation .current {
-            border-bottom: 1px solid var(--ink);
-            padding-bottom: 5px;
+
+        /* =====================================
+           CLOSE BUTTON — TOP RIGHT
+        ===================================== */
+
+        .close-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 32px;
+            height: 32px;
+
+            font-family: var(--sans);
+            font-size: 32px;
+            font-weight: 200;
+            line-height: 1;
+
+            color: var(--ink);
+
+            cursor: pointer;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .close-button:hover {
+            opacity: 0.55;
+            transform: rotate(90deg);
+        }
+
+        .close-button:focus-visible {
+            outline: 1px solid var(--ink);
+            outline-offset: 5px;
         }
 
 
         /* =====================================
            FIRST SECTION
-
-           Image on the left
-           Description on the right
-
-           Both scroll together
+           IMAGE LEFT + DESCRIPTION RIGHT
         ===================================== */
 
         .project-intro {
@@ -129,7 +145,6 @@
             max-width: 1640px;
 
             margin: 0 auto;
-
             padding-top: 125px;
 
             display: grid;
@@ -161,24 +176,18 @@
 
         /* =====================================
            PROJECT DESCRIPTION
-
-           Aligned with the first image
-           No sticky positioning
         ===================================== */
 
         .intro-information {
             min-width: 0;
             align-self: end;
-
             padding-bottom: 2px;
         }
 
         .project-title {
             font-family: var(--serif);
-
             font-size: 28px;
             font-weight: 400;
-
             letter-spacing: 0.015em;
             line-height: 1.2;
 
@@ -197,7 +206,6 @@
 
             font-family: var(--serif);
             font-size: 13px;
-
             color: var(--muted);
         }
 
@@ -207,7 +215,6 @@
 
         .project-description p {
             font-family: var(--serif);
-
             font-size: 14px;
             font-weight: 400;
             line-height: 1.85;
@@ -219,29 +226,10 @@
             margin-bottom: 0;
         }
 
-        .sidebar-back {
-            display: inline-block;
-
-            margin-top: 25px;
-
-            font-family: var(--serif);
-            font-size: 13px;
-
-            color: var(--muted);
-
-            transition: color 0.3s ease;
-        }
-
-        .sidebar-back:hover {
-            color: var(--ink);
-        }
-
 
         /* =====================================
            EDITORIAL GALLERY
-
-           Entirely centered on the page
-           No side descriptions or columns
+           CENTERED ON THE PAGE
         ===================================== */
 
         .project-gallery {
@@ -255,7 +243,6 @@
 
             display: flex;
             flex-direction: column;
-
             align-items: center;
 
             gap: clamp(70px, 8vw, 150px);
@@ -275,8 +262,6 @@
 
         /* =====================================
            WIDE IMAGES
-
-           Centered within the page
         ===================================== */
 
         .gallery-wide {
@@ -288,9 +273,6 @@
 
         /* =====================================
            MEDIUM IMAGES
-
-           Slightly smaller
-           Also centered
         ===================================== */
 
         .gallery-medium {
@@ -301,10 +283,8 @@
 
 
         /* =====================================
-           DESIGN INSPIRATION
-
-           Four images in one horizontal row
-           Centered relative to exterior render
+           INSPIRATION IMAGES
+           FOUR IN ONE HORIZONTAL ROW
         ===================================== */
 
         .inspiration-row {
@@ -340,15 +320,13 @@
 
 
         /* =====================================
-           PROJECT NAVIGATION
+           PROJECT FOOTER
         ===================================== */
 
         .project-footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-
-            gap: 20px;
 
             padding: 45px 4% 50px;
 
@@ -422,14 +400,10 @@
                 font-size: 19px;
             }
 
-            .site-navigation {
-                gap: 15px;
-                padding-top: 0;
-            }
-
-            .site-navigation a {
-                font-size: 9px;
-                letter-spacing: 0.04em;
+            .close-button {
+                width: 30px;
+                height: 30px;
+                font-size: 29px;
             }
 
 
@@ -468,12 +442,8 @@
                 line-height: 1.8;
             }
 
-            .sidebar-back {
-                margin-top: 15px;
-            }
 
-
-            /* Centered mobile gallery */
+            /* Mobile gallery */
 
             .project-gallery {
                 width: 90%;
@@ -488,7 +458,7 @@
             }
 
 
-            /* Four inspiration images in one row */
+            /* Inspiration images */
 
             .inspiration-grid {
                 width: 100%;
@@ -500,13 +470,10 @@
             }
 
 
-            /* Project navigation */
+            /* Footer */
 
             .project-footer {
                 padding: 35px 5%;
-
-                flex-direction: column;
-                align-items: flex-start;
             }
 
             .project-footer a {
@@ -526,6 +493,10 @@
                 scroll-behavior: auto;
             }
 
+            .close-button {
+                transition: none;
+            }
+
         }
 
     </style>
@@ -537,33 +508,22 @@
 
 
     <!-- =====================================
-         HEADER
+         HEADER — BRAND + CLOSE BUTTON
     ===================================== -->
 
     <header class="site-header">
 
-        <a class="site-brand"
-           href="index.html">
+        <a class="site-brand" href="index.html">
             Marc Karakus
         </a>
 
-        <nav class="site-navigation"
-             aria-label="Main navigation">
+        <a class="close-button"
+           href="projects.html#amiche"
+           aria-label="Close project and return to projects">
 
-            <a href="projects.html"
-               class="current">
-                PROJECTS
-            </a>
+            <span aria-hidden="true">&times;</span>
 
-            <a href="about.html">
-                ABOUT
-            </a>
-
-            <a href="mailto:karakusmarc@gmail.com">
-                CONTACT
-            </a>
-
-        </nav>
+        </a>
 
     </header>
 
@@ -572,15 +532,13 @@
 
 
         <!-- =====================================
-             FIRST SECTION
-
-             First render + description
+             INTRO — FIRST IMAGE + DESCRIPTION
         ===================================== -->
 
         <section class="project-intro">
 
 
-            <!-- FIRST IMAGE — LEFT -->
+            <!-- MAIN IMAGE -->
 
             <figure class="intro-image">
 
@@ -592,7 +550,7 @@
             </figure>
 
 
-            <!-- PROJECT DESCRIPTION — RIGHT -->
+            <!-- DESCRIPTION -->
 
             <aside class="intro-information">
 
@@ -627,29 +585,19 @@
 
                 </div>
 
-
-                <a class="sidebar-back"
-                   href="projects.html#amiche">
-                    ← All projects
-                </a>
-
             </aside>
 
         </section>
 
 
-
         <!-- =====================================
              EDITORIAL IMAGE GALLERY
-
-             All images centered
-             No text alongside images
         ===================================== -->
 
         <div class="project-gallery">
 
 
-            <!-- IMAGE 02 — EXTERIOR -->
+            <!-- EXTERIOR -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -661,50 +609,38 @@
             </figure>
 
 
-
-            <!-- IMAGES 03–06 — INSPIRATION -->
+            <!-- INSPIRATION — FOUR IMAGES -->
 
             <div class="inspiration-row">
 
                 <div class="inspiration-grid">
 
                     <figure>
-
                         <img
                             src="WEB/amiche/inspiration-01.webp"
                             alt="Intimate design inspiration"
                             loading="lazy">
-
                     </figure>
 
-
                     <figure>
-
                         <img
                             src="WEB/amiche/inspiration-02.webp"
                             alt="Organic design inspiration"
                             loading="lazy">
-
                     </figure>
 
-
                     <figure>
-
                         <img
                             src="WEB/amiche/inspiration-03.webp"
                             alt="Softness design inspiration"
                             loading="lazy">
-
                     </figure>
 
-
                     <figure>
-
                         <img
                             src="WEB/amiche/inspiration-04.webp"
                             alt="Minimalism design inspiration"
                             loading="lazy">
-
                     </figure>
 
                 </div>
@@ -712,8 +648,7 @@
             </div>
 
 
-
-            <!-- IMAGE 07 — TENDER GARAGE -->
+            <!-- TENDER GARAGE -->
 
             <figure class="gallery-image gallery-medium">
 
@@ -725,8 +660,7 @@
             </figure>
 
 
-
-            <!-- IMAGE 08 — FLYBRIDGE -->
+            <!-- FLYBRIDGE -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -738,8 +672,7 @@
             </figure>
 
 
-
-            <!-- IMAGE 09 — INTERIOR -->
+            <!-- INTERIOR -->
 
             <figure class="gallery-image gallery-medium">
 
@@ -750,22 +683,16 @@
 
             </figure>
 
-
         </div>
 
     </main>
 
 
-
     <!-- =====================================
-         PROJECT NAVIGATION
+         NEXT PROJECT
     ===================================== -->
 
     <footer class="project-footer">
-
-        <a href="projects.html#amiche">
-            ← ALL PROJECTS
-        </a>
 
         <a href="kai.html">
             NEXT PROJECT — KAI →
