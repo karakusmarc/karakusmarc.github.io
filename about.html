@@ -15,11 +15,6 @@
 
     <style>
 
-        /* =====================================
-           KARAKUS — ABOUT
-           Editorial Biography
-        ===================================== */
-
         :root {
             --paper: #faf9f6;
             --ink: #292623;
@@ -56,10 +51,7 @@
             max-width: 100%;
         }
 
-
-        /* =====================================
-           FIXED HEADER
-        ===================================== */
+        /* HEADER */
 
         .site-header {
             position: fixed;
@@ -74,7 +66,6 @@
             align-items: center;
 
             padding: 22px 4%;
-
             background: var(--paper);
         }
 
@@ -84,7 +75,6 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: 0.01em;
-
             transition: opacity 0.3s ease;
         }
 
@@ -92,10 +82,7 @@
             opacity: 0.6;
         }
 
-
-        /* =====================================
-           CLOSE BUTTON
-        ===================================== */
+        /* CLOSE BUTTON */
 
         .close-button {
             display: flex;
@@ -125,34 +112,25 @@
             outline-offset: 5px;
         }
 
-
-        /* =====================================
-           EDITORIAL LAYOUT
-        ===================================== */
+        /* EDITORIAL LAYOUT */
 
         .about-layout {
             width: 88%;
             max-width: 1400px;
 
             margin: 0 auto;
-
             padding: 175px 0 160px;
 
             display: grid;
-
             grid-template-columns:
                 minmax(0, 43fr)
                 minmax(0, 45fr);
 
             column-gap: 12%;
-
             align-items: start;
         }
 
-
-        /* =====================================
-           PORTRAIT
-        ===================================== */
+        /* PORTRAIT */
 
         .portrait {
             width: 100%;
@@ -161,12 +139,9 @@
 
         .portrait-frame {
             position: relative;
-
             width: 100%;
             aspect-ratio: 4 / 5;
-
             overflow: hidden;
-
             background: #e5e2dc;
         }
 
@@ -181,10 +156,7 @@
             object-position: center;
         }
 
-
-        /* =====================================
-           BIOGRAPHY
-        ===================================== */
+        /* BIOGRAPHY */
 
         .biography {
             padding-top: 30px;
@@ -210,7 +182,7 @@
         .biography-text p {
             font-family: var(--serif);
 
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 400;
 
             line-height: 1.85;
@@ -223,24 +195,16 @@
             margin-bottom: 0;
         }
 
-
-        /* =====================================
-           INTRODUCTORY STATEMENT
-        ===================================== */
+        /* INTRODUCTORY STATEMENT */
 
         .biography-text .biography-intro {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 400;
-
             line-height: 1.85;
-
             margin-bottom: 45px;
         }
 
-
-        /* =====================================
-           TABLET
-        ===================================== */
+        /* TABLET */
 
         @media (max-width: 1050px) {
 
@@ -264,21 +228,18 @@
             }
 
             .biography-text p {
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 1.85;
             }
 
             .biography-text .biography-intro {
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 35px;
             }
 
         }
 
-
-        /* =====================================
-           MOBILE
-        ===================================== */
+        /* MOBILE */
 
         @media (max-width: 700px) {
 
@@ -326,21 +287,16 @@
             }
 
             .biography-text p {
-                font-size: 10px;
+                font-size: 12px;
                 line-height: 1.85;
             }
 
             .biography-text .biography-intro {
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 35px;
             }
 
         }
-
-
-        /* =====================================
-           REDUCED MOTION
-        ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -359,13 +315,9 @@
 
 </head>
 
-
 <body>
 
-
-    <!-- =====================================
-         HEADER
-    ===================================== -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -384,12 +336,9 @@
     </header>
 
 
-    <!-- =====================================
-         ABOUT LAYOUT
-    ===================================== -->
+    <!-- ABOUT LAYOUT -->
 
     <main class="about-layout">
-
 
         <!-- PORTRAIT -->
 
@@ -414,7 +363,6 @@
             <h1>
                 Marc Karakus Pérez
             </h1>
-
 
             <div class="biography-text">
 
@@ -481,9 +429,7 @@
     </main>
 
 
-    <!-- =====================================
-         PORTRAIT FALLBACK
-    ===================================== -->
+    <!-- PORTRAIT FALLBACK -->
 
     <script>
 
@@ -516,4 +462,3 @@
 </body>
 
 </html>
-
