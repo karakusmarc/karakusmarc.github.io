@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Marc Karakus Pérez — Yacht Designer and Design Engineer.">
+
+    <title>About | Marc Karakus</title>
+
+    <style>
+
+        /* =====================================
+           KARAKUS — ABOUT
+           Editorial Biography
+        ===================================== */
+
+        :root {
+            --paper: #faf9f6;
+            --ink: #292623;
+            --muted: #928b84;
+            --line: #e5e1dc;
+
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* =====================================
+           FIXED HEADER
+        ===================================== */
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 4%;
+
+            background: var(--paper);
+        }
+
+        .site-brand {
+            font-family: var(--serif);
+            font-size: 23px;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .site-brand:hover {
+            opacity: 0.6;
+        }
+
+
+        /* =====================================
+           CLOSE BUTTON
+        ===================================== */
+
+        .close-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 32px;
+            height: 32px;
+
+            font-family: var(--sans);
+            font-size: 32px;
+            font-weight: 200;
+            line-height: 1;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .close-button:hover {
+            opacity: 0.55;
+            transform: rotate(90deg);
+        }
+
+        .close-button:focus-visible {
+            outline: 1px solid var(--ink);
+            outline-offset: 5px;
+        }
+
+
+        /* =====================================
+           EDITORIAL LAYOUT
+        ===================================== */
+
+        .about-layout {
+            width: 88%;
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+            padding: 175px 0 160px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 43fr)
+                minmax(0, 45fr);
+
+            column-gap: 12%;
+
+            align-items: start;
+        }
+
+
+        /* =====================================
+           PORTRAIT
+        ===================================== */
+
+        .portrait {
+            width: 100%;
+            margin: 0;
+        }
+
+        .portrait-frame {
+            position: relative;
+
+            width: 100%;
+            aspect-ratio: 4 / 5;
+
+            overflow: hidden;
+
+            background: #e5e2dc;
+        }
+
+        .portrait-frame img {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        /* =====================================
+           BIOGRAPHY
+        ===================================== */
+
+        .biography {
+            padding-top: 30px;
+            min-width: 0;
+        }
+
+        .biography h1 {
+            font-family: var(--serif);
+
+            font-size: clamp(27px, 2.4vw, 37px);
+            font-weight: 400;
+
+            letter-spacing: 0.005em;
+            line-height: 1.25;
+
+            margin-bottom: 40px;
+        }
+
+        .biography-text {
+            max-width: 610px;
+        }
+
+        .biography-text p {
+            font-family: var(--serif);
+
+            font-size: 16px;
+            font-weight: 400;
+
+            line-height: 1.85;
+            letter-spacing: 0;
+
+            margin-bottom: 25px;
+        }
+
+        .biography-text p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================
+           INTRODUCTORY STATEMENT
+        ===================================== */
+
+        .biography-text .biography-intro {
+            font-size: 18px;
+            font-weight: 400;
+
+            line-height: 1.65;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =====================================
+           MORE INFORMATION
+        ===================================== */
+
+        .more-information {
+            margin-top: 60px;
+            border-top: 1px solid var(--line);
+        }
+
+        .more-information summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 0;
+
+            font-family: var(--serif);
+            font-size: 14px;
+
+            color: var(--muted);
+
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+
+        .more-information summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .more-information summary::after {
+            content: "+";
+
+            font-family: var(--sans);
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .more-information[open] summary::after {
+            content: "−";
+        }
+
+        .more-information summary:hover {
+            color: var(--ink);
+        }
+
+        .more-content {
+            padding: 20px 0 35px;
+        }
+
+        .detail-group {
+            margin-bottom: 35px;
+        }
+
+        .detail-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-heading {
+            font-family: var(--sans);
+
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .detail-entry {
+            display: grid;
+            grid-template-columns: 75px 1fr;
+
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .detail-date {
+            font-family: var(--sans);
+            font-size: 11px;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .detail-text {
+            font-family: var(--serif);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .detail-text span {
+            display: block;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+
+        /* =====================================
+           CONTACT
+        ===================================== */
+
+        .contact {
+            margin-top: 55px;
+        }
+
+        .contact a {
+            display: inline-block;
+
+            font-family: var(--serif);
+            font-size: 14px;
+
+            color: var(--muted);
+
+            border-bottom: 1px solid transparent;
+            padding-bottom: 4px;
+
+            transition:
+                color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: var(--ink);
+            border-bottom-color: var(--ink);
+        }
+
+
+        /* =====================================
+           TABLET
+        ===================================== */
+
+        @media (max-width: 1050px) {
+
+            .about-layout {
+                width: 90%;
+                column-gap: 7%;
+
+                grid-template-columns:
+                    minmax(0, 45fr)
+                    minmax(0, 48fr);
+
+                padding-top: 145px;
+            }
+
+            .biography {
+                padding-top: 15px;
+            }
+
+            .biography h1 {
+                margin-bottom: 30px;
+            }
+
+            .biography-text p {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .biography-text .biography-intro {
+                font-size: 17px;
+                margin-bottom: 35px;
+            }
+
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 700px) {
+
+            .site-header {
+                padding: 20px 5%;
+            }
+
+            .site-brand {
+                font-size: 19px;
+            }
+
+            .close-button {
+                width: 30px;
+                height: 30px;
+                font-size: 29px;
+            }
+
+            .about-layout {
+                width: 90%;
+                max-width: 560px;
+
+                display: flex;
+                flex-direction: column;
+
+                padding: 115px 0 90px;
+                gap: 55px;
+            }
+
+            .portrait {
+                width: 100%;
+            }
+
+            .portrait-frame {
+                aspect-ratio: 4 / 5;
+            }
+
+            .biography {
+                width: 100%;
+                padding-top: 0;
+            }
+
+            .biography h1 {
+                font-size: 29px;
+                margin-bottom: 30px;
+            }
+
+            .biography-text p {
+                font-size: 15px;
+                line-height: 1.85;
+            }
+
+            .biography-text .biography-intro {
+                font-size: 18px;
+                margin-bottom: 35px;
+            }
+
+            .more-information {
+                margin-top: 45px;
+            }
+
+            .contact {
+                margin-top: 40px;
+            }
+
+        }
+
+
+        /* =====================================
+           REDUCED MOTION
+        ===================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .site-brand,
+            .close-button,
+            .contact a {
+                transition: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         HEADER
+    ===================================== -->
+
+    <header class="site-header">
+
+        <a class="site-brand" href="index.html">
+            Marc Karakus
+        </a>
+
+        <a class="close-button"
+           href="projects.html"
+           aria-label="Close and return to projects">
+
+            <span aria-hidden="true">&times;</span>
+
+        </a>
+
+    </header>
+
+
+    <!-- =====================================
+         ABOUT LAYOUT
+    ===================================== -->
+
+    <main class="about-layout">
+
+
+        <!-- PORTRAIT -->
+
+        <figure class="portrait">
+
+            <div class="portrait-frame">
+
+                <img
+                    src="WEB/about/portrait.webp"
+                    alt="Portrait of Marc Karakus Pérez"
+                    id="aboutPortrait">
+
+            </div>
+
+        </figure>
+
+
+
+        <!-- BIOGRAPHY -->
+
+        <article class="biography">
+
+            <h1>
+                Marc Karakus Pérez
+            </h1>
+
+
+            <div class="biography-text">
+
+                <!-- INTRODUCTION -->
+
+                <p class="biography-intro">
+                    From engineering to yacht design,
+                    an evolving interest in architecture
+                    and life at sea.
+                </p>
+
+
+                <!-- PARAGRAPH 1 -->
+
+                <p>
+                    Born and raised in Mallorca, the sea
+                    has always been a natural part of my life.
+                    Growing up surrounded by the Mediterranean
+                    and its maritime culture, I developed a
+                    fascination with boats and life on the water.
+                </p>
+
+
+                <!-- PARAGRAPH 2 -->
+
+                <p>
+                    Towards the end of my engineering degree,
+                    I wanted to take my career in a different
+                    direction. Yacht design offered the
+                    opportunity to bring together my passion
+                    for the sea with my interests in
+                    engineering, architecture and design.
+                </p>
+
+
+                <!-- PARAGRAPH 3 -->
+
+                <p>
+                    My experiences in Milan and South Africa
+                    have been personally and professionally
+                    very enriching.
+                </p>
+
+
+                <!-- PARAGRAPH 4 -->
+
+                <p>
+                    Living and working in different environments
+                    has broadened my perspective, strengthened
+                    my interest in yacht design and reassured
+                    me that this is the path I want to pursue.
+                </p>
+
+
+                <!-- PARAGRAPH 5 -->
+
+                <p>
+                    For now, my ambition is to keep learning,
+                    gaining experience and developing my own
+                    approach to design. In the longer term,
+                    I hope to establish my own yacht design
+                    studio in Mallorca, returning to the place
+                    where my connection with the sea first began.
+                </p>
+
+
+                <!-- PARAGRAPH 6 -->
+
+                <p>
+                    Beyond design, I find inspiration in the
+                    simple things: reading, travelling, staying
+                    active and spending time outdoors,
+                    particularly by the sea. These moments
+                    allow me to disconnect, discover new
+                    perspectives and nurture the curiosity
+                    that has always guided both my personal
+                    and professional journey.
+                </p>
+
+            </div>
+
+
+
+            <!-- MORE INFORMATION -->
+
+            <details class="more-information">
+
+                <summary>
+                    More information
+                </summary>
+
+
+                <div class="more-content">
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="detail-group">
+
+                        <h2 class="detail-heading">
+                            EDUCATION
+                        </h2>
+
+
+                        <div class="detail-entry">
+
+                            <span class="detail-date">
+                                2024–25
+                            </span>
+
+                            <p class="detail-text">
+                                Master in Yacht Design
+
+                                <span>
+                                    POLI.design /
+                                    Politecnico di Milano
+                                </span>
+                            </p>
+
+                        </div>
+
+
+                        <div class="detail-entry">
+
+                            <span class="detail-date">
+                                2018–23
+                            </span>
+
+                            <p class="detail-text">
+                                BSc in Industrial Electronics
+                                and Automation Engineering
+
+                                <span>
+                                    Universitat de les
+                                    Illes Balears
+                                </span>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="detail-group">
+
+                        <h2 class="detail-heading">
+                            EXPERIENCE
+                        </h2>
+
+
+                        <div class="detail-entry">
+
+                            <span class="detail-date">
+                                2026
+                            </span>
+
+                            <p class="detail-text">
+                                Barracuda Yacht Design
+
+                                <span>
+                                    Yacht Designer —
+                                    Madrid
+                                </span>
+                            </p>
+
+                        </div>
+
+
+                        <div class="detail-entry">
+
+                            <span class="detail-date">
+                                2025
+                            </span>
+
+                            <p class="detail-text">
+                                Southern Wind Shipyard
+
+                                <span>
+                                    Yacht Design &amp; Systems —
+                                    Cape Town
+                                </span>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </details>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="contact">
+
+                <a href="mailto:karakusmarc@gmail.com">
+                    karakusmarc@gmail.com
+                </a>
+
+            </div>
+
+
+        </article>
+
+    </main>
+
+
+    <!-- =====================================
+         PORTRAIT FALLBACK
+    ===================================== -->
+
+    <script>
+
+        const portrait = document.getElementById(
+            "aboutPortrait"
+        );
+
+        if (portrait) {
+
+            function hideMissingPortrait() {
+                portrait.style.display = "none";
+            }
+
+            portrait.addEventListener(
+                "error",
+                hideMissingPortrait
+            );
+
+            if (
+                portrait.complete &&
+                portrait.naturalWidth === 0
+            ) {
+                hideMissingPortrait();
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
