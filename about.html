@@ -4,7 +4,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -15,17 +14,23 @@
 
     <style>
 
+        /* =====================================
+           KARAKUS — ABOUT ME
+           Minimal Editorial Design
+        ===================================== */
+
         :root {
             --paper: #faf9f6;
             --ink: #292623;
+            --muted: #a59b98;
+
             --serif: Georgia, "Times New Roman", serif;
-            --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -36,7 +41,6 @@
             background: var(--paper);
             color: var(--ink);
             font-family: var(--serif);
-            font-weight: 400;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -45,103 +49,152 @@
             text-decoration: none;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
 
-        /* HEADER */
+        /* =====================================
+           FIXED LEFT SIDEBAR
+        ===================================== */
 
-        .site-header {
+        .sidebar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
 
-            z-index: 100;
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            width: 25%;
+
+            padding: 28px 4% 40px;
 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
 
-            padding: 22px 4%;
-            background: var(--paper);
+            z-index: 100;
         }
+
+
+        /* =====================================
+           BRAND
+        ===================================== */
 
         .site-brand {
             font-family: var(--serif);
+
             font-size: 23px;
             font-weight: 400;
+
             line-height: 1.2;
             letter-spacing: 0.01em;
-            transition: opacity 0.3s ease;
+
+            white-space: nowrap;
         }
 
-        .site-brand:hover {
-            opacity: 0.6;
-        }
 
-        /* CLOSE BUTTON */
+        /* =====================================
+           NAVIGATION
+        ===================================== */
 
-        .close-button {
+        .nav-top {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
 
-            width: 32px;
-            height: 32px;
+            align-items: flex-start;
 
-            font-family: var(--sans);
-            font-size: 32px;
-            font-weight: 200;
-            line-height: 1;
+            gap: 9px;
 
-            transition:
-                opacity 0.3s ease,
-                transform 0.3s ease;
+            margin-top: 30px;
+            padding-left: 15px;
         }
 
-        .close-button:hover {
-            opacity: 0.55;
-            transform: rotate(90deg);
+        .nav-bottom {
+            display: flex;
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 9px;
+
+            margin-top: auto;
+            padding-left: 15px;
         }
 
-        .close-button:focus-visible {
-            outline: 1px solid var(--ink);
-            outline-offset: 5px;
+        .sidebar nav a {
+            font-family: var(--serif);
+
+            font-size: 13px;
+            font-weight: 400;
+
+            line-height: 1.25;
+            letter-spacing: 0.025em;
+
+            color: var(--muted);
+
+            transition: color 0.3s ease;
         }
 
-        /* EDITORIAL LAYOUT */
-
-        .about-layout {
-            width: 88%;
-            max-width: 1400px;
-
-            margin: 0 auto;
-            padding: 175px 0 160px;
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 43fr)
-                minmax(0, 45fr);
-
-            column-gap: 12%;
-            align-items: start;
+        .sidebar nav a:hover {
+            color: var(--ink);
         }
 
-        /* PORTRAIT */
+        .sidebar nav a.active {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+
+        /* =====================================
+           MAIN CONTENT
+
+           Starts at 31% of page width
+           Text occupies 33% of page width
+        ===================================== */
+
+        .about-main {
+            width: 33%;
+
+            margin-left: 31%;
+
+            padding-top: 100px;
+            padding-bottom: 150px;
+        }
+
+
+        /* =====================================
+           PAGE TITLE
+        ===================================== */
+
+        .about-title {
+            font-family: var(--serif);
+
+            font-size: 28px;
+            font-weight: 400;
+
+            line-height: 1.25;
+            letter-spacing: 0.005em;
+
+            margin-bottom: 38px;
+        }
+
+
+        /* =====================================
+           PORTRAIT
+
+           Slightly narrower than text
+        ===================================== */
 
         .portrait {
-            width: 100%;
+            width: 82%;
             margin: 0;
         }
 
         .portrait-frame {
             position: relative;
+
             width: 100%;
             aspect-ratio: 4 / 5;
+
             overflow: hidden;
+
             background: #e5e2dc;
         }
 
@@ -156,34 +209,28 @@
             object-position: center;
         }
 
-        /* BIOGRAPHY */
+
+        /* =====================================
+           BIOGRAPHY
+
+           12px text
+           Justified
+           One-third page width
+        ===================================== */
 
         .biography {
-            padding-top: 30px;
-            min-width: 0;
-        }
+            width: 100%;
 
-        .biography h1 {
-            font-family: var(--serif);
-
-            font-size: clamp(27px, 2.4vw, 37px);
-            font-weight: 400;
-
-            letter-spacing: 0.005em;
-            line-height: 1.25;
-
-            margin-bottom: 40px;
-        }
-
-        .biography-text {
-            max-width: 610px;
+            margin-top: 85px;
 
             text-align: justify;
             text-align-last: left;
+
             hyphens: auto;
+            -webkit-hyphens: auto;
         }
 
-        .biography-text p {
+        .biography p {
             font-family: var(--serif);
 
             font-size: 12px;
@@ -195,83 +242,104 @@
             margin-bottom: 25px;
         }
 
-        .biography-text p:last-child {
+        .biography p:last-child {
             margin-bottom: 0;
         }
 
-        /* INTRODUCTORY STATEMENT */
 
-        .biography-text .biography-intro {
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 1.85;
-
-            margin-bottom: 25px;
-        }
-
-        /* TABLET */
+        /* =====================================
+           TABLET
+        ===================================== */
 
         @media (max-width: 1050px) {
 
-            .about-layout {
+            .sidebar {
+                width: 27%;
+            }
+
+            .site-brand {
+                font-size: 21px;
+            }
+
+            .about-main {
+                width: 45%;
+                margin-left: 35%;
+
+                padding-top: 110px;
+            }
+
+            .portrait {
                 width: 90%;
-                column-gap: 7%;
-
-                grid-template-columns:
-                    minmax(0, 45fr)
-                    minmax(0, 48fr);
-
-                padding-top: 145px;
             }
 
             .biography {
-                padding-top: 15px;
-            }
-
-            .biography h1 {
-                margin-bottom: 30px;
-            }
-
-            .biography-text p,
-            .biography-text .biography-intro {
-                font-size: 12px;
-                line-height: 1.85;
-                margin-bottom: 25px;
-            }
-
-            .biography-text p:last-child {
-                margin-bottom: 0;
+                margin-top: 65px;
             }
 
         }
 
-        /* MOBILE */
+
+        /* =====================================
+           MOBILE
+        ===================================== */
 
         @media (max-width: 700px) {
 
-            .site-header {
-                padding: 20px 5%;
-            }
+            /* Sidebar becomes top navigation */
 
-            .site-brand {
-                font-size: 19px;
-            }
+            .sidebar {
+                position: relative;
 
-            .close-button {
-                width: 30px;
-                height: 30px;
-                font-size: 29px;
-            }
+                width: 100%;
+                height: auto;
 
-            .about-layout {
-                width: 90%;
-                max-width: 560px;
+                padding: 22px 5%;
 
                 display: flex;
                 flex-direction: column;
 
-                padding: 115px 0 90px;
-                gap: 55px;
+                gap: 22px;
+            }
+
+            .site-brand {
+                font-size: 20px;
+            }
+
+            .nav-top,
+            .nav-bottom {
+                margin-top: 0;
+                padding-left: 0;
+
+                display: flex;
+                flex-direction: row;
+
+                gap: 24px;
+            }
+
+            .nav-bottom {
+                position: static;
+            }
+
+            .sidebar nav a {
+                font-size: 12px;
+            }
+
+
+            /* Main content */
+
+            .about-main {
+                width: 90%;
+                max-width: 560px;
+
+                margin: 0 auto;
+
+                padding-top: 40px;
+                padding-bottom: 90px;
+            }
+
+            .about-title {
+                font-size: 27px;
+                margin-bottom: 30px;
             }
 
             .portrait {
@@ -284,26 +352,21 @@
 
             .biography {
                 width: 100%;
-                padding-top: 0;
+                margin-top: 55px;
             }
 
-            .biography h1 {
-                font-size: 29px;
-                margin-bottom: 30px;
-            }
-
-            .biography-text p,
-            .biography-text .biography-intro {
+            .biography p {
                 font-size: 12px;
                 line-height: 1.85;
                 margin-bottom: 25px;
             }
 
-            .biography-text p:last-child {
-                margin-bottom: 0;
-            }
-
         }
+
+
+        /* =====================================
+           REDUCED MOTION
+        ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -311,8 +374,7 @@
                 scroll-behavior: auto;
             }
 
-            .site-brand,
-            .close-button {
+            .sidebar nav a {
                 transition: none;
             }
 
@@ -322,30 +384,69 @@
 
 </head>
 
+
 <body>
 
-    <!-- HEADER -->
 
-    <header class="site-header">
+    <!-- =====================================
+         FIXED LEFT SIDEBAR
+    ===================================== -->
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
 
         <a class="site-brand" href="index.html">
             Marc Karakus
         </a>
 
-        <a class="close-button"
-           href="projects.html"
-           aria-label="Close and return to projects">
 
-            <span aria-hidden="true">&times;</span>
+        <!-- TOP MENU -->
 
-        </a>
+        <nav class="nav-top"
+             aria-label="Project navigation">
 
-    </header>
+            <a href="projects.html">
+                Projects
+            </a>
+
+        </nav>
 
 
-    <!-- ABOUT LAYOUT -->
+        <!-- BOTTOM MENU -->
 
-    <main class="about-layout">
+        <nav class="nav-bottom"
+             aria-label="Personal navigation">
+
+            <a href="about.html"
+               class="active"
+               aria-current="page">
+                About me
+            </a>
+
+            <a href="mailto:karakusmarc@gmail.com">
+                Contact
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN ABOUT CONTENT
+    ===================================== -->
+
+    <main class="about-main">
+
+
+        <!-- TITLE -->
+
+        <h1 class="about-title">
+            Marc Karakus Pérez
+        </h1>
+
 
         <!-- PORTRAIT -->
 
@@ -354,89 +455,85 @@
             <div class="portrait-frame">
 
                 <img
+                    id="aboutPortrait"
                     src="WEB/about/portrait.webp"
-                    alt="Portrait of Marc Karakus Pérez"
-                    id="aboutPortrait">
+                    alt="Portrait of Marc Karakus Pérez">
 
             </div>
 
         </figure>
 
 
+
         <!-- BIOGRAPHY -->
 
-        <article class="biography">
+        <article class="biography" lang="en">
 
-            <h1>
-                Marc Karakus Pérez
-            </h1>
+            <p>
+                From engineering to yacht design,
+                an evolving interest in architecture
+                and life at sea.
+            </p>
 
-            <div class="biography-text">
+            <p>
+                Born and raised in Mallorca, the sea
+                has always been a natural part of my life.
+                Growing up surrounded by the Mediterranean
+                and its maritime culture, I developed a
+                fascination with boats and life on the water.
+            </p>
 
-                <p class="biography-intro">
-                    From engineering to yacht design,
-                    an evolving interest in architecture
-                    and life at sea.
-                </p>
+            <p>
+                Towards the end of my engineering degree,
+                I wanted to take my career in a different
+                direction. Yacht design offered the
+                opportunity to bring together my passion
+                for the sea with my interests in
+                engineering, architecture and design.
+            </p>
 
-                <p>
-                    Born and raised in Mallorca, the sea
-                    has always been a natural part of my life.
-                    Growing up surrounded by the Mediterranean
-                    and its maritime culture, I developed a
-                    fascination with boats and life on the water.
-                </p>
+            <p>
+                My experiences in Milan and South Africa
+                have been personally and professionally
+                very enriching.
+            </p>
 
-                <p>
-                    Towards the end of my engineering degree,
-                    I wanted to take my career in a different
-                    direction. Yacht design offered the
-                    opportunity to bring together my passion
-                    for the sea with my interests in
-                    engineering, architecture and design.
-                </p>
+            <p>
+                Living and working in different environments
+                has broadened my perspective, strengthened
+                my interest in yacht design and reassured
+                me that this is the path I want to pursue.
+            </p>
 
-                <p>
-                    My experiences in Milan and South Africa
-                    have been personally and professionally
-                    very enriching.
-                </p>
+            <p>
+                For now, my ambition is to keep learning,
+                gaining experience and developing my own
+                approach to design. In the longer term,
+                I hope to establish my own yacht design
+                studio in Mallorca, returning to the place
+                where my connection with the sea first began.
+            </p>
 
-                <p>
-                    Living and working in different environments
-                    has broadened my perspective, strengthened
-                    my interest in yacht design and reassured
-                    me that this is the path I want to pursue.
-                </p>
-
-                <p>
-                    For now, my ambition is to keep learning,
-                    gaining experience and developing my own
-                    approach to design. In the longer term,
-                    I hope to establish my own yacht design
-                    studio in Mallorca, returning to the place
-                    where my connection with the sea first began.
-                </p>
-
-                <p>
-                    Beyond design, I find inspiration in the
-                    simple things: reading, travelling, staying
-                    active and spending time outdoors,
-                    particularly by the sea. These moments
-                    allow me to disconnect, discover new
-                    perspectives and nurture the curiosity
-                    that has always guided both my personal
-                    and professional journey.
-                </p>
-
-            </div>
+            <p>
+                Beyond design, I find inspiration in the
+                simple things: reading, travelling, staying
+                active and spending time outdoors,
+                particularly by the sea. These moments
+                allow me to disconnect, discover new
+                perspectives and nurture the curiosity
+                that has always guided both my personal
+                and professional journey.
+            </p>
 
         </article>
 
     </main>
 
 
-    <!-- PORTRAIT FALLBACK -->
+
+    <!-- =====================================
+         PORTRAIT FALLBACK
+    ===================================== -->
 
     <script>
 
@@ -466,6 +563,8 @@
 
     </script>
 
+
 </body>
 
 </html>
+
