@@ -57,6 +57,10 @@
             height: auto;
         }
 
+        figure {
+            margin: 0;
+        }
+
 
         /* =====================================
            HEADER
@@ -75,7 +79,6 @@
             align-items: flex-start;
 
             padding: 22px 4%;
-
             background: var(--paper);
         }
 
@@ -98,6 +101,7 @@
             font-size: 10px;
             font-weight: 400;
             letter-spacing: 0.12em;
+
             transition: opacity 0.3s ease;
         }
 
@@ -112,37 +116,72 @@
 
 
         /* =====================================
-           MAIN PROJECT LAYOUT
+           FIRST SECTION
+
+           Image on the left
+           Description on the right
+
+           Both scroll together
         ===================================== */
 
-        .project-layout {
-            display: grid;
-            grid-template-columns: 25% 75%;
-            align-items: start;
+        .project-intro {
+            width: 92%;
+            max-width: 1640px;
 
-            padding: 115px 4% 100px;
-            min-height: 100vh;
+            margin: 0 auto;
+
+            padding-top: 125px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 72fr)
+                minmax(0, 24fr);
+
+            gap: 4%;
+
+            align-items: end;
         }
 
 
         /* =====================================
-           FIXED PROJECT DESCRIPTION
+           FIRST IMAGE
         ===================================== */
 
-        .project-sidebar {
-            position: sticky;
-            top: 115px;
-            align-self: start;
+        .intro-image {
+            width: 100%;
+            min-width: 0;
+        }
 
-            padding-right: clamp(25px, 4vw, 75px);
+        .intro-image img {
+            width: 100%;
+            height: auto;
+        }
+
+
+        /* =====================================
+           PROJECT DESCRIPTION
+
+           Aligned with the first image
+           No sticky positioning
+        ===================================== */
+
+        .intro-information {
+            min-width: 0;
+            align-self: end;
+
+            padding-bottom: 2px;
         }
 
         .project-title {
             font-family: var(--serif);
+
             font-size: 28px;
             font-weight: 400;
-            line-height: 1.2;
+
             letter-spacing: 0.015em;
+            line-height: 1.2;
+
             margin-bottom: 12px;
         }
 
@@ -155,31 +194,41 @@
 
         .project-year {
             margin-top: 8px;
+
             font-family: var(--serif);
             font-size: 13px;
+
             color: var(--muted);
         }
 
         .project-description {
-            margin-top: 45px;
-            max-width: 330px;
+            margin-top: 35px;
         }
 
         .project-description p {
             font-family: var(--serif);
+
             font-size: 14px;
             font-weight: 400;
             line-height: 1.85;
-            margin-bottom: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .project-description p:last-child {
+            margin-bottom: 0;
         }
 
         .sidebar-back {
             display: inline-block;
-            margin-top: 30px;
+
+            margin-top: 25px;
 
             font-family: var(--serif);
             font-size: 13px;
+
             color: var(--muted);
+
             transition: color 0.3s ease;
         }
 
@@ -189,16 +238,27 @@
 
 
         /* =====================================
-           EDITORIAL IMAGE GALLERY
+           EDITORIAL GALLERY
+
+           Entirely centered on the page
+           No side descriptions or columns
         ===================================== */
 
         .project-gallery {
-            width: 100%;
-            min-width: 0;
+            width: 72%;
+            max-width: 1260px;
+
+            margin:
+                clamp(85px, 9vw, 170px)
+                auto
+                130px;
 
             display: flex;
             flex-direction: column;
-            gap: clamp(35px, 5vw, 95px);
+
+            align-items: center;
+
+            gap: clamp(70px, 8vw, 150px);
         }
 
         .gallery-image {
@@ -214,41 +274,50 @@
 
 
         /* =====================================
-           WIDE AND MEDIUM IMAGES
+           WIDE IMAGES
+
+           Centered within the page
         ===================================== */
 
         .gallery-wide {
             width: 100%;
-        }
-
-        .gallery-medium {
-            width: 82%;
-        }
-
-        .gallery-medium.right {
             margin-left: auto;
-        }
-
-        .gallery-medium.left {
             margin-right: auto;
         }
 
 
         /* =====================================
-           INSPIRATION IMAGES
+           MEDIUM IMAGES
 
-           Centered relative to exterior render
+           Slightly smaller
+           Also centered
+        ===================================== */
+
+        .gallery-medium {
+            width: 82%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* =====================================
+           DESIGN INSPIRATION
+
            Four images in one horizontal row
+           Centered relative to exterior render
         ===================================== */
 
         .inspiration-row {
             width: 100%;
+
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
 
         .inspiration-grid {
+            width: 76%;
+
             display: grid;
 
             grid-template-columns:
@@ -256,13 +325,10 @@
 
             gap: clamp(8px, 1vw, 18px);
 
-            width: 76%;
-            margin: 10px 0;
             align-items: start;
         }
 
         .inspiration-grid figure {
-            margin: 0;
             min-width: 0;
         }
 
@@ -274,22 +340,25 @@
 
 
         /* =====================================
-           FINAL PROJECT NAVIGATION
+           PROJECT NAVIGATION
         ===================================== */
 
         .project-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 20px;
 
-            padding: 60px 4% 50px;
+            padding: 45px 4% 50px;
+
             border-top: 1px solid #e3e0db;
         }
 
         .project-footer a {
             font-family: var(--serif);
             font-size: 14px;
+
             transition: opacity 0.3s ease;
         }
 
@@ -304,25 +373,35 @@
 
         @media (max-width: 1050px) {
 
-            .project-layout {
-                grid-template-columns: 30% 70%;
+            .project-intro {
+                width: 92%;
+
+                grid-template-columns:
+                    minmax(0, 65fr)
+                    minmax(0, 31fr);
+
+                gap: 4%;
             }
 
             .project-title {
-                font-size: 25px;
+                font-size: 24px;
             }
 
             .project-description {
-                margin-top: 30px;
+                margin-top: 20px;
             }
 
             .project-description p {
-                font-size: 13px;
+                font-size: 12px;
+                line-height: 1.7;
+            }
+
+            .project-gallery {
+                width: 80%;
             }
 
             .inspiration-grid {
-                width: 90%;
-                gap: 10px;
+                width: 80%;
             }
 
         }
@@ -353,16 +432,22 @@
                 letter-spacing: 0.04em;
             }
 
-            .project-layout {
+
+            /* First image and description stack */
+
+            .project-intro {
                 display: block;
-                padding: 115px 5% 65px;
+
+                width: 90%;
+                padding-top: 110px;
             }
 
-            .project-sidebar {
-                position: relative;
-                top: auto;
-                padding-right: 0;
-                margin-bottom: 50px;
+            .intro-image {
+                width: 100%;
+            }
+
+            .intro-information {
+                margin-top: 30px;
             }
 
             .project-title {
@@ -374,37 +459,52 @@
             }
 
             .project-description {
-                margin-top: 30px;
+                margin-top: 25px;
                 max-width: 100%;
             }
 
             .project-description p {
                 font-size: 14px;
+                line-height: 1.8;
             }
 
             .sidebar-back {
                 margin-top: 15px;
             }
 
+
+            /* Centered mobile gallery */
+
             .project-gallery {
-                gap: 40px;
+                width: 90%;
+
+                margin: 75px auto 85px;
+
+                gap: 55px;
             }
 
             .gallery-medium {
                 width: 100%;
             }
 
+
+            /* Four inspiration images in one row */
+
             .inspiration-grid {
+                width: 100%;
+
                 grid-template-columns:
                     repeat(4, minmax(0, 1fr));
 
-                width: 100%;
                 gap: 7px;
-                margin: 10px 0;
             }
+
+
+            /* Project navigation */
 
             .project-footer {
                 padding: 35px 5%;
+
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -421,9 +521,11 @@
         ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
+
             html {
                 scroll-behavior: auto;
             }
+
         }
 
     </style>
@@ -433,18 +535,23 @@
 
 <body>
 
-    <!-- HEADER -->
+
+    <!-- =====================================
+         HEADER
+    ===================================== -->
 
     <header class="site-header">
 
-        <a class="site-brand" href="index.html">
+        <a class="site-brand"
+           href="index.html">
             Marc Karakus
         </a>
 
         <nav class="site-navigation"
              aria-label="Main navigation">
 
-            <a href="projects.html" class="current">
+            <a href="projects.html"
+               class="current">
                 PROJECTS
             </a>
 
@@ -461,71 +568,88 @@
     </header>
 
 
-    <!-- PROJECT LAYOUT -->
-
-    <main class="project-layout">
+    <main>
 
 
-        <!-- LEFT COLUMN -->
+        <!-- =====================================
+             FIRST SECTION
 
-        <aside class="project-sidebar">
+             First render + description
+        ===================================== -->
 
-            <h1 class="project-title">
-                AMICHE
-            </h1>
-
-            <p class="project-category">
-                60M MOTOR YACHT
-            </p>
-
-            <p class="project-year">
-                2026
-            </p>
-
-            <div class="project-description">
-
-                <p>
-                    AMICHE explores a refined approach
-                    to yacht design, where organic forms,
-                    soft transitions and a restrained
-                    architectural language create a
-                    sense of timeless elegance.
-                </p>
-
-                <p>
-                    The concept seeks to establish a
-                    natural connection between life
-                    on board and the surrounding sea.
-                </p>
-
-            </div>
-
-            <a class="sidebar-back"
-               href="projects.html#amiche">
-                ← All projects
-            </a>
-
-        </aside>
+        <section class="project-intro">
 
 
-        <!-- RIGHT COLUMN — EDITORIAL GALLERY -->
+            <!-- FIRST IMAGE — LEFT -->
 
-        <div class="project-gallery">
-
-
-            <!-- MAIN RENDER -->
-
-            <figure class="gallery-image gallery-wide">
+            <figure class="intro-image">
 
                 <img
                     src="WEB/amiche/hero.webp"
-                    alt="AMICHE motor yacht — main exterior view"
+                    alt="AMICHE — 60 metre motor yacht"
                     fetchpriority="high">
 
             </figure>
 
 
-            <!-- EXTERIOR RENDER -->
+            <!-- PROJECT DESCRIPTION — RIGHT -->
+
+            <aside class="intro-information">
+
+                <h1 class="project-title">
+                    AMICHE
+                </h1>
+
+                <p class="project-category">
+                    60M MOTOR YACHT
+                </p>
+
+                <p class="project-year">
+                    2026
+                </p>
+
+
+                <div class="project-description">
+
+                    <p>
+                        AMICHE explores a refined approach
+                        to yacht design, where organic forms,
+                        soft transitions and a restrained
+                        architectural language create a
+                        sense of timeless elegance.
+                    </p>
+
+                    <p>
+                        The concept seeks to establish a
+                        natural connection between life
+                        on board and the surrounding sea.
+                    </p>
+
+                </div>
+
+
+                <a class="sidebar-back"
+                   href="projects.html#amiche">
+                    ← All projects
+                </a>
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- =====================================
+             EDITORIAL IMAGE GALLERY
+
+             All images centered
+             No text alongside images
+        ===================================== -->
+
+        <div class="project-gallery">
+
+
+            <!-- IMAGE 02 — EXTERIOR -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -537,38 +661,50 @@
             </figure>
 
 
-            <!-- FOUR CENTERED INSPIRATION IMAGES -->
+
+            <!-- IMAGES 03–06 — INSPIRATION -->
 
             <div class="inspiration-row">
 
                 <div class="inspiration-grid">
 
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-01.webp"
                             alt="Intimate design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-02.webp"
                             alt="Organic design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-03.webp"
                             alt="Softness design inspiration"
                             loading="lazy">
+
                     </figure>
 
+
                     <figure>
+
                         <img
                             src="WEB/amiche/inspiration-04.webp"
                             alt="Minimalism design inspiration"
                             loading="lazy">
+
                     </figure>
 
                 </div>
@@ -576,9 +712,10 @@
             </div>
 
 
-            <!-- TENDER GARAGE -->
 
-            <figure class="gallery-image gallery-medium left">
+            <!-- IMAGE 07 — TENDER GARAGE -->
+
+            <figure class="gallery-image gallery-medium">
 
                 <img
                     src="WEB/amiche/garage.webp"
@@ -588,7 +725,8 @@
             </figure>
 
 
-            <!-- FLYBRIDGE -->
+
+            <!-- IMAGE 08 — FLYBRIDGE -->
 
             <figure class="gallery-image gallery-wide">
 
@@ -600,9 +738,10 @@
             </figure>
 
 
-            <!-- INTERIOR -->
 
-            <figure class="gallery-image gallery-medium right">
+            <!-- IMAGE 09 — INTERIOR -->
+
+            <figure class="gallery-image gallery-medium">
 
                 <img
                     src="WEB/amiche/interior.webp"
@@ -617,7 +756,10 @@
     </main>
 
 
-    <!-- PROJECT NAVIGATION -->
+
+    <!-- =====================================
+         PROJECT NAVIGATION
+    ===================================== -->
 
     <footer class="project-footer">
 
@@ -630,6 +772,7 @@
         </a>
 
     </footer>
+
 
 </body>
 
